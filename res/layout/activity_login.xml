@@ -1,0 +1,71 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.gestineo.MainActivity" 
+    android:background="@drawable/login" >
+
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Mot de passe"
+        android:textColor="#85A6D1" />
+
+    <EditText
+        android:id="@+id/EditText02"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="245dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Login"
+        android:textColor="#85A6D1" />
+
+    <CheckBox
+        android:id="@+id/checkBox1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editText1"
+        android:layout_below="@+id/editText1"
+        android:layout_marginTop="41dp" />
+
+    <Button
+        android:id="@+id/button1"
+        android:onClick="openMainMenu"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_alignLeft="@+id/checkBox1"
+        android:layout_below="@+id/checkBox1"
+        android:layout_marginTop="45dp"
+        android:background="@drawable/buttonstyle"
+        android:text="Se Connecter"
+        android:textColor="#85A6D1"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/Button01"
+        android:onClick="openRegister"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_alignRight="@+id/editText1"
+        android:layout_alignTop="@+id/button1"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/buttonstyle"
+        android:text="S&apos;inscrire"
+        android:textColor="#85A6D1"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+    
+</RelativeLayout>
