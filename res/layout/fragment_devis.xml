@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" 
-    android:background="@color/fragment_bg"
-    android:paddingTop="@dimen/fragement_devis_vertical_margin"
-    android:paddingBottom="@dimen/fragement_devis_vertical_margin"
-    android:paddingLeft="@dimen/fragement_devis_horizontal_margin"
-    android:paddingRight="@dimen/fragement_devis_horizontal_margin">
+    android:layout_height="wrap_content"
+    android:fillViewport="true" >
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="986dp"
+        android:background="@color/fragment_bg"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/fragement_devis_vertical_margin"
+        android:paddingLeft="@dimen/fragement_devis_horizontal_margin"
+        android:paddingRight="@dimen/fragement_devis_horizontal_margin"
+        android:paddingTop="@dimen/fragement_devis_vertical_margin" >
 
     <TextView
         android:id="@+id/textView1"
@@ -15,10 +20,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="30dp"
         android:text="Informations client"
-        android:textAppearance="?android:attr/textAppearanceLarge" 
-        android:textColor="#85A6D1"/>
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#85A6D1" />
 
     <EditText
         android:id="@+id/editText1"
@@ -26,7 +31,7 @@
         android:layout_height="50dp"
         android:layout_below="@+id/textView1"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="40dp"
         android:ems="10"
         android:inputType="textMultiLine"
         android:text="Nom"
@@ -62,9 +67,57 @@
         android:layout_height="36dp"
         android:layout_below="@+id/editText2"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="30dp"
         android:text="Informations préstation"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#85A6D1" />
 
+    <EditText
+        android:id="@+id/EditText02"
+        android:layout_width="1020dp"
+        android:layout_height="50dp"
+        android:layout_alignLeft="@+id/editText2"
+        android:layout_below="@+id/TextView01"
+        android:layout_marginTop="40dp"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        android:text="Objet du devis "
+        android:textColor="#85A6D1" />
+
+    <EditText
+        android:id="@+id/EditText03"
+        android:layout_width="1020dp"
+        android:layout_height="50dp"
+        android:layout_alignLeft="@+id/EditText02"
+        android:layout_below="@+id/EditText02"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        android:text="Désignation tache "
+        android:textColor="#85A6D1" />
+
+   <!--   <EditText
+        android:id="@+id/EditText04"
+        android:layout_width="1020dp"
+        android:layout_height="50dp"
+        android:layout_alignLeft="@+id/EditText03"
+        android:layout_below="@+id/EditText03"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        android:text="erferf"
+        android:textColor="#85A6D1" />-->
+
+    <Spinner
+        android:id="@+id/spinner1"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_alignLeft="@+id/EditText03"
+        android:layout_below="@+id/EditText03"
+        android:layout_marginTop="15dp"
+        android:layout_toLeftOf="@+id/TextView01" 
+        android:textColor="#85A6D1" />
+
 </RelativeLayout>
+</ScrollView>
+    
