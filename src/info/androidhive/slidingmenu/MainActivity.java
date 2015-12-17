@@ -1,10 +1,9 @@
 package info.androidhive.slidingmenu;
 
+import info.androidhive.gestineo.R;
 import info.androidhive.slidingmenu.adapter.NavDrawerListAdapter;
 import info.androidhive.slidingmenu.model.NavDrawerItem;
-
 import java.util.ArrayList;
-
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;

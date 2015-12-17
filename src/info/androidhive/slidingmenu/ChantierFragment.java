@@ -1,7 +1,7 @@
 package info.androidhive.slidingmenu;
+import info.androidhive.gestineo.R;
 import java.util.ArrayList;
 import java.util.Arrays;
-
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;

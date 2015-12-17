@@ -1,6 +1,6 @@
 package info.androidhive.slidingmenu.adapter;
 
-import info.androidhive.slidingmenu.R;
+import info.androidhive.gestineo.R;
 import info.androidhive.slidingmenu.model.NavDrawerItem;
 
 import java.util.ArrayList;
