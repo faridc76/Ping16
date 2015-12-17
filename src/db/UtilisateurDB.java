@@ -5,14 +5,9 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.LinkedHashMap;
-import java.util.Map;
-
-import org.json.JSONArray;
 import org.json.JSONObject;
 
 import android.os.StrictMode;
-import android.util.Log;
 import fr.free.gestineo.Utilisateur;
 
 public class UtilisateurDB {
@@ -21,6 +16,7 @@ public class UtilisateurDB {
 	public final static String CHEF_DE_CHANTIER = "Chef de chantier";
 	public final static String CONDUCTEUR_DE_TRAVAUX = "Conducteur de travaux";
 	public final static String RESPONSABLE_DAFFAIRES = "Responsable d'affaires";
+	public final static String GOOD_RESULT = "True";
 	
 	public final static String DOMAINE = "http://gestineo.free.fr/";
 
@@ -29,27 +25,25 @@ public class UtilisateurDB {
 	
 	//Un truc dans le genre le model de base de données est dans le package
 	public static void AjoutPersonne(Utilisateur u) {
-		String a = "";
+		String result = "";
 		OutputStreamWriter writer = null;
 		BufferedReader reader = null;
 		try {
 			StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
 			StrictMode.setThreadPolicy(policy); 
-			a = "";
 			URL url = new URL(DOMAINE + "ajoutUtilisateur.php");
 			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 			connection.setDoOutput(true); // Pour pouvoir envoyer des donn�es
 			connection.setRequestMethod("POST"); 
 			writer = new OutputStreamWriter(connection.getOutputStream());
-			//writer.write("email=" + p.getEmail() + "&nom=" + p.getNom() + "&prenom=" + p.getPrenom() + "&password=" + p.getPassword() + );
+			writer.write("matricule=" + u.getMatricule() + "&nom=" + u.getNom() + "&prenom=" + u.getPrenom() + "&numero=" + u.getNumero() + "&bureau=" + u.getBureau() + "&mail=" + u.getMail() + "&password=" + u.getPassword());
 			writer.flush();
-			
 			reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
             String ligne;
             while ((ligne = reader.readLine()) != null) {
-                a += ligne;
+                result += ligne;
             }
-            int id = Integer.parseInt(a);
+            int id = Integer.parseInt(result);
             u.setId(id);
          } catch (Exception e) {
             e.printStackTrace();
@@ -60,24 +54,109 @@ public class UtilisateurDB {
 	}
 
 	public static boolean checkLogin(String matricule, String password) {
-		return false;
+		String result = "";
+		OutputStreamWriter writer = null;
+		BufferedReader reader = null;
+		try {
+			StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+			StrictMode.setThreadPolicy(policy); 
+			URL url = new URL(DOMAINE + "checkLogin.php");
+			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+			connection.setDoOutput(true); // Pour pouvoir envoyer des donn�es
+			connection.setRequestMethod("POST"); 
+			writer = new OutputStreamWriter(connection.getOutputStream());
+			writer.write("matricule=" + matricule + "&password=" + password);
+			writer.flush();
+			reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+            String ligne;
+            while ((ligne = reader.readLine()) != null) {
+                result += ligne;
+            }
+         } catch (Exception e) {
+            e.printStackTrace();
+         }finally{
+            try{writer.close();}catch(Exception e){}
+            try{reader.close();}catch(Exception e){}
+         }
+		return result.equals(GOOD_RESULT);
 	}
 	
 	public static boolean isMatriculeFree(String matricule) {
-		return false;
+		String result = "";
+		OutputStreamWriter writer = null;
+		BufferedReader reader = null;
+		try {
+			StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+			StrictMode.setThreadPolicy(policy); 
+			URL url = new URL(DOMAINE + "matriculeFree.php");
+			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+			connection.setDoOutput(true); // Pour pouvoir envoyer des donn�es
+			connection.setRequestMethod("POST"); 
+			writer = new OutputStreamWriter(connection.getOutputStream());
+			writer.write("matricule=" + matricule);
+			writer.flush();
+			reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+            String ligne;
+            while ((ligne = reader.readLine()) != null) {
+                result += ligne;
+            }
+         } catch (Exception e) {
+            e.printStackTrace();
+         }finally{
+            try{writer.close();}catch(Exception e){}
+            try{reader.close();}catch(Exception e){}
+         }
+		return result.equals(GOOD_RESULT);
 	}
 	
 	
-	//Pour les deux prochaines classes on recupere toute les infos sauf le mot de passe
-	//le mot de passe on le test avec check login
+	
 	public static Utilisateur getUtilisateurFromMatricule(String matricule) {
-		return null;
-		
+		return getUtilisateur("matricule", matricule);	
 	}
 
 	public static Utilisateur getUtilisateurFromId(int id) {
-		return null;
-		
+		return getUtilisateur("id", String.valueOf(id));
+	}
+	
+	//Fonction qui recupere l'utilisateur en fonction du mode et de la valeur
+	private static Utilisateur getUtilisateur(String mode, String valeur) {
+		Utilisateur u = null;
+		String result = "";
+		OutputStreamWriter writer = null;
+		BufferedReader reader = null;
+		try {
+			StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+			StrictMode.setThreadPolicy(policy); 
+			URL url = new URL(DOMAINE + "recupUtilisateur.php");
+			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+			connection.setDoOutput(true); // Pour pouvoir envoyer des donn�es
+			connection.setRequestMethod("POST"); 
+			writer = new OutputStreamWriter(connection.getOutputStream());
+			writer.write("mode=" + mode + "&valeur=" + valeur);
+			writer.flush();
+			reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+            String ligne;
+            while ((ligne = reader.readLine()) != null) {
+                result += ligne;
+            }
+            JSONObject obj = new JSONObject(result);
+            u = new Utilisateur();
+            u.setId(obj.getInt("id"));
+            u.setMatricule(obj.getString("matricule"));
+            u.setNom(obj.getString("nom"));
+            u.setPrenom(obj.getString("prenom"));
+            u.setNumero(obj.getString("numero"));
+            u.setBureau(obj.getString("bureau"));
+            u.setMail(obj.getString("email"));
+            u.setFonction(obj.getString("fonction"));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally{
+        	try{writer.close();}catch(Exception e){}
+            try{reader.close();}catch(Exception e){}
+        }
+		return u;
 	}
 }
  

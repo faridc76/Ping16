@@ -10,6 +10,7 @@ public class Utilisateur {
 	private String bureau;
 	private String mail;
 	private String fonction;
+	private String password;
 	
 	public Utilisateur () {};
 	
@@ -75,6 +76,14 @@ public class Utilisateur {
 
 	public void setFonction(String fonction) {
 		this.fonction = fonction;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	
 }
