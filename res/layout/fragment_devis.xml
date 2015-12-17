@@ -117,6 +117,18 @@
         android:layout_marginTop="15dp"
         android:layout_toLeftOf="@+id/TextView01" 
         android:textColor="#85A6D1" />
+    
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="220dp"
+        android:layout_height="60dp"
+        android:layout_alignRight="@+id/EditText03"
+        android:layout_alignTop="@+id/spinner1"
+        android:background="@drawable/buttonstyle"
+        android:text="Envoyer"
+        android:textColor="#85A6D1"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
 </RelativeLayout>
 </ScrollView>
