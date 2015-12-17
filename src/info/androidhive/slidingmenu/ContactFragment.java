@@ -27,7 +27,7 @@ public class ContactFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_contact, container, false);
         
         listView = (ListView) rootView.findViewById(R.id.contact_list_view);
-        String[] items = {"Albert Dupont","Benoit Roux","Christian Petit","Damien Bellenger","Etienne Petrel","François Hollande","Gerrard Dubois","Henry Durant","Jean Perrin", "Kevin Giroux", "Thierry Leroy"};
+        String[] items = {"Albert Dupont","Benoit Roux","Christian Petit","Damien Bellenger","Etienne Petrel","FranÃ§ois Hollande","Gerrard Dubois","Henry Durant","Iliasse Romane", "Kevin Giroux", "Thierry Leroy"};
         arrayList = new ArrayList<>(Arrays.asList(items));
         arrayAdapter = new ArrayAdapter<String>(getActivity(), R.layout.list_item, R.id.list_item_text, arrayList);
         listView.setAdapter(arrayAdapter);
