@@ -68,7 +68,7 @@
         android:layout_below="@+id/editText2"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
-        android:text="Informations préstation"
+        android:text="Informations prestation"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#85A6D1" />
 
