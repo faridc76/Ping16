@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class NavDrawerListAdapter extends BaseAdapter {
@@ -51,8 +52,10 @@ public class NavDrawerListAdapter extends BaseAdapter {
         TextView txtTitle = (TextView) convertView.findViewById(R.id.title);
         TextView txtCount = (TextView) convertView.findViewById(R.id.counter);
          
-        imgIcon.setImageResource(navDrawerItems.get(position).getIcon());        
-        txtTitle.setText(navDrawerItems.get(position).getTitle());
+        imgIcon.setImageResource(navDrawerItems.get(position).getIcon());  
+        //LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(30, 30);
+        //imgIcon .setLayoutParams(layoutParams);
+        txtTitle.setText("");
         
         // displaying count
         // check whether it set visible or not
