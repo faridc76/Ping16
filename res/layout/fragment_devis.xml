@@ -1,9 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.app.FragmentTabHost
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@android:id/tabhost"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:fillViewport="true" >
+    android:layout_height="match_parent">
+
     
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:id="@+id/realtabcontent"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+    
+    
+    <!--
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="986dp"
@@ -14,89 +31,90 @@
         android:paddingRight="@dimen/fragement_devis_horizontal_margin"
         android:paddingTop="@dimen/fragement_devis_vertical_margin" >
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:text="Informations client"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#85A6D1" />
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:text="Informations client"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#85A6D1" />
 
-    <EditText
-        android:id="@+id/editText1"
-        android:layout_width="1020dp"
-        android:layout_height="50dp"
-        android:layout_below="@+id/textView1"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
-        android:ems="10"
-        android:inputType="textMultiLine"
-        android:text="Nom"
-        android:textColor="#85A6D1" />
+        <EditText
+            android:id="@+id/editText1"
+            android:layout_width="1020dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/textView1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:ems="10"
+            android:inputType="textMultiLine"
+            android:text="Nom"
+            android:textColor="#85A6D1" />
 
-    <EditText
-        android:id="@+id/EditText01"
-        android:layout_width="1020dp"
-        android:layout_height="50dp"
-        android:layout_alignLeft="@+id/editText1"
-        android:layout_below="@+id/editText1"
-        android:layout_marginTop="15dp"
-        android:ems="10"
-        android:inputType="textMultiLine"
-        android:text="Adresse "
-        android:textColor="#85A6D1" />
+        <EditText
+            android:id="@+id/EditText01"
+            android:layout_width="1020dp"
+            android:layout_height="50dp"
+            android:layout_alignLeft="@+id/editText1"
+            android:layout_below="@+id/editText1"
+            android:layout_marginTop="15dp"
+            android:ems="10"
+            android:inputType="textMultiLine"
+            android:text="Adresse "
+            android:textColor="#85A6D1" />
 
-    <EditText
-        android:id="@+id/editText2"
-        android:layout_width="1020dp"
-        android:layout_height="50dp"
-        android:layout_alignLeft="@+id/EditText01"
-        android:layout_below="@+id/EditText01"
-        android:layout_marginTop="15dp"
-        android:ems="10"
-        android:inputType="number"
-        android:text="Numéro de téléphone"
-        android:textColor="#85A6D1" />
+        <EditText
+            android:id="@+id/editText2"
+            android:layout_width="1020dp"
+            android:layout_height="50dp"
+            android:layout_alignLeft="@+id/EditText01"
+            android:layout_below="@+id/EditText01"
+            android:layout_marginTop="15dp"
+            android:ems="10"
+            android:inputType="number"
+            android:text="Numéro de téléphone"
+            android:textColor="#85A6D1" />
 
-    <TextView
-        android:id="@+id/TextView01"
-        android:layout_width="240dp"
-        android:layout_height="36dp"
-        android:layout_below="@+id/editText2"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:text="Informations prestation"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#85A6D1" />
+        <TextView
+            android:id="@+id/TextView01"
+            android:layout_width="240dp"
+            android:layout_height="36dp"
+            android:layout_below="@+id/editText2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:text="Informations prestation"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#85A6D1" />
 
-    <EditText
-        android:id="@+id/EditText02"
-        android:layout_width="1020dp"
-        android:layout_height="50dp"
-        android:layout_alignLeft="@+id/editText2"
-        android:layout_below="@+id/TextView01"
-        android:layout_marginTop="40dp"
-        android:ems="10"
-        android:inputType="textMultiLine"
-        android:text="Objet du devis "
-        android:textColor="#85A6D1" />
+        <EditText
+            android:id="@+id/EditText02"
+            android:layout_width="1020dp"
+            android:layout_height="50dp"
+            android:layout_alignLeft="@+id/editText2"
+            android:layout_below="@+id/TextView01"
+            android:layout_marginTop="40dp"
+            android:ems="10"
+            android:inputType="textMultiLine"
+            android:text="Objet du devis "
+            android:textColor="#85A6D1" />
 
-    <EditText
-        android:id="@+id/EditText03"
-        android:layout_width="1020dp"
-        android:layout_height="50dp"
-        android:layout_alignLeft="@+id/EditText02"
-        android:layout_below="@+id/EditText02"
-        android:layout_marginTop="15dp"
-        android:ems="10"
-        android:inputType="textMultiLine"
-        android:text="Désignation tache "
-        android:textColor="#85A6D1" />
+        <EditText
+            android:id="@+id/EditText03"
+            android:layout_width="1020dp"
+            android:layout_height="50dp"
+            android:layout_alignLeft="@+id/EditText02"
+            android:layout_below="@+id/EditText02"
+            android:layout_marginTop="15dp"
+            android:ems="10"
+            android:inputType="textMultiLine"
+            android:text="Désignation tache "
+            android:textColor="#85A6D1" />
 
-   <!--   <EditText
+        
+          <EditText
         android:id="@+id/EditText04"
         android:layout_width="1020dp"
         android:layout_height="50dp"
@@ -106,30 +124,31 @@
         android:ems="10"
         android:inputType="textMultiLine"
         android:text="erferf"
-        android:textColor="#85A6D1" />-->
-
-    <Spinner
-        android:id="@+id/spinner1"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_alignLeft="@+id/EditText03"
-        android:layout_below="@+id/EditText03"
-        android:layout_marginTop="15dp"
-        android:layout_toLeftOf="@+id/TextView01" 
         android:textColor="#85A6D1" />
-    
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="220dp"
-        android:layout_height="60dp"
-        android:layout_alignRight="@+id/EditText03"
-        android:layout_alignTop="@+id/spinner1"
-        android:background="@drawable/buttonstyle"
-        android:text="Envoyer"
-        android:textColor="#85A6D1"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        
 
-</RelativeLayout>
-</ScrollView>
-    
+        <Spinner
+            android:id="@+id/spinner1"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_alignLeft="@+id/EditText03"
+            android:layout_below="@+id/EditText03"
+            android:layout_marginTop="15dp"
+            android:layout_toLeftOf="@+id/TextView01"
+            android:textColor="#85A6D1" />
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="220dp"
+            android:layout_height="60dp"
+            android:layout_alignRight="@+id/EditText03"
+            android:layout_alignTop="@+id/spinner1"
+            android:background="@drawable/buttonstyle"
+            android:text="Envoyer"
+            android:textColor="#85A6D1"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+    -->
+
+</android.support.v4.app.FragmentTabHost>
