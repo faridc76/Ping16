@@ -27,6 +27,14 @@ public class DevisFragment extends Fragment {
         		DevisFragmentB.class, null);
         mTabHost.addTab(mTabHost.newTabSpec("fragmentc").setIndicator("Tab C"),
         		DevisFragmentC.class, null);
+        mTabHost.addTab(mTabHost.newTabSpec("fragmentd").setIndicator("Tab D"),
+        		DevisFragmentD.class, null);
+        mTabHost.addTab(mTabHost.newTabSpec("fragmente").setIndicator("Tab E"),
+                DevisFragmentE.class, null);
+        mTabHost.addTab(mTabHost.newTabSpec("fragmentf").setIndicator("Tab F"),
+        		DevisFragmentF.class, null);
+        mTabHost.addTab(mTabHost.newTabSpec("fragmentg").setIndicator("Tab G"),
+        		DevisFragmentG.class, null);
 
         return rootView;
 	}
