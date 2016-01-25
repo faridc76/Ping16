@@ -40,6 +40,8 @@ public class MainActivity extends FragmentActivity {
 
 	// used to store app title
 	private CharSequence mTitle;
+	private String repeated = new String(new char[115]).replace("\0", "&nbsp;");
+	private String titleText = "<font color='#F5F5F5'><b>" + repeated +"Gestineo" + repeated + "</b></font>";
 
 	// slide menu items
 	private String[] navMenuTitles;
@@ -54,11 +56,11 @@ public class MainActivity extends FragmentActivity {
 		setContentView(R.layout.activity_main);
 		
 
-		mTitle = mDrawerTitle = getTitle();	
+		mTitle = mDrawerTitle = getTitle();
 		
 		ActionBar actionBar = getActionBar();
 		actionBar.setBackgroundDrawable(new ColorDrawable(Color.rgb(0x1b, 0x2f, 0x48)));
-		actionBar.setTitle(Html.fromHtml("<font color='#F5F5F5'>&nbsp;&nbsp;" + mTitle + "</font>"));
+		actionBar.setTitle(Html.fromHtml(titleText)); 
 		
 		// load slide menu items
 		navMenuTitles = getResources().getStringArray(R.array.nav_drawer_items);
@@ -107,13 +109,13 @@ public class MainActivity extends FragmentActivity {
 				R.string.app_name // nav drawer close - description for accessibility
 		) {
 			public void onDrawerClosed(View view) {
-				getActionBar().setTitle(Html.fromHtml("<font color='#F5F5F5'>&nbsp;&nbsp;" + mTitle + "</font>"));
+				getActionBar().setTitle(Html.fromHtml(titleText));
 				// calling onPrepareOptionsMenu() to show action bar icons
 				invalidateOptionsMenu();
 			}
 
 			public void onDrawerOpened(View drawerView) {
-				getActionBar().setTitle(Html.fromHtml("<font color='#F5F5F5'>&nbsp;&nbsp;" + mDrawerTitle + "</font>"));
+				getActionBar().setTitle(Html.fromHtml(titleText));
 				// calling onPrepareOptionsMenu() to hide action bar icons
 				invalidateOptionsMenu();
 			}
@@ -220,7 +222,7 @@ public class MainActivity extends FragmentActivity {
 	@Override
 	public void setTitle(CharSequence title) {
 		mTitle = title;
-		getActionBar().setTitle(Html.fromHtml("<font color='#F5F5F5'>&nbsp;&nbsp;" + mTitle + "</font>"));
+		getActionBar().setTitle(Html.fromHtml(titleText));
 	}
 
 	/**

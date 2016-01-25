@@ -20,7 +20,7 @@
     <!-- Nav Drawer List Item Icons -->
     <!-- Keep them in order as the titles are in -->
     <array name="nav_drawer_icons">
-        <item>@drawable/chantier_ic</item>
+        <item>@drawable/test_hd</item>
         <item>@drawable/plan_ic</item>
         <item>@drawable/bdc_ic</item>
         <item>@drawable/codis_ic</item>
