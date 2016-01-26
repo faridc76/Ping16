@@ -15,7 +15,7 @@
         android:orientation="vertical" >
         
         <ListView
-            android:id="@+id/chantier_list_view"
+            android:id="@+id/devis_list_view"
             android:layout_width="match_parent"
             android:layout_height="634dp"
             android:divider="@color/fragment_bg"

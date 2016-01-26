@@ -40,7 +40,7 @@ public class MainActivity extends FragmentActivity {
 
 	// used to store app title
 	private CharSequence mTitle;
-	private String repeated = new String(new char[115]).replace("\0", "&nbsp;");
+	private String repeated = new String(new char[118]).replace("\0", "&nbsp;");
 	private String titleText = "<font color='#F5F5F5'><b>" + repeated +"Gestineo" + repeated + "</b></font>";
 
 	// slide menu items
@@ -193,7 +193,7 @@ public class MainActivity extends FragmentActivity {
 			fragment = new CodisFragment();
 			break;
 		case 4:
-			fragment = new DevisFragment();
+			fragment = new DevisFragmentList();
 			break;
 		case 5:
 			fragment = new ContactFragment();

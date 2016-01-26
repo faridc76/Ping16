@@ -27,7 +27,7 @@ public class ChantierFragment extends Fragment {
         listView = (ListView) rootView.findViewById(R.id.chantier_list_view);
         String[] items = {"Angers","Amiens","Aix-en-Provence","Bordeaux","Caen","Dijon","Elbeuf","Fontainebleau","Grenoble","Issy-les-Moulineaux","Lille","Massy","Marseilles","Paris","Rouen","Versailles"};
         arrayList = new ArrayList<>(Arrays.asList(items));
-        arrayAdapter = new ArrayAdapter<String>(getActivity(), R.layout.list_item, R.id.list_item_text, arrayList);
+        arrayAdapter = new ArrayAdapter<String>(getActivity(), R.layout.fragment_chantier_list_item, R.id.list_item_text, arrayList);
         listView.setAdapter(arrayAdapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
         	@Override
