@@ -19,7 +19,7 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Mot de passe"
-        android:textColor="#85A6D1" />
+        android:textColor="@color/lightblue_text" />
 
     <EditText
         android:id="@+id/EditText02"
@@ -31,7 +31,7 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Login"
-        android:textColor="#85A6D1" />
+        android:textColor="@color/lightblue_text" />
 
     <CheckBox
         android:id="@+id/checkBox1"
@@ -51,7 +51,7 @@
         android:layout_marginTop="45dp"
         android:background="@drawable/buttonstyle"
         android:text="Se Connecter"
-        android:textColor="#85A6D1"
+        android:textColor="@color/lightblue_text"
         android:textSize="20sp"
         android:textStyle="bold" />
 

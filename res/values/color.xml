@@ -7,4 +7,6 @@
     <color name="counter_text_bg">#626262</color>
     <color name="counter_text_color">#374350</color>
     <color name="fragment_bg">#394552</color>
+    <color name="golden_text">#BDB388</color>
+    <color name="lightblue_text">#85A6D1</color>
 </resources>
