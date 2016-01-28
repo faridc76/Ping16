@@ -21,19 +21,19 @@ public class DevisFragment extends Fragment {
         mTabHost = (FragmentTabHost)rootView.findViewById(android.R.id.tabhost);
         mTabHost.setup(getActivity(), getChildFragmentManager(), R.id.realtabcontent);
 
-        mTabHost.addTab(mTabHost.newTabSpec("fragmenta").setIndicator("Tab A"),
+        mTabHost.addTab(mTabHost.newTabSpec("fragmenta").setIndicator("Métré du devis"),
                 DevisFragmentA.class, null);
-        mTabHost.addTab(mTabHost.newTabSpec("fragmentb").setIndicator("Tab B"),
+        mTabHost.addTab(mTabHost.newTabSpec("fragmentb").setIndicator("Détail du métré"),
         		DevisFragmentB.class, null);
-        mTabHost.addTab(mTabHost.newTabSpec("fragmentc").setIndicator("Tab C"),
+        mTabHost.addTab(mTabHost.newTabSpec("fragmentc").setIndicator("Remises"),
         		DevisFragmentC.class, null);
-        mTabHost.addTab(mTabHost.newTabSpec("fragmentd").setIndicator("Tab D"),
+        mTabHost.addTab(mTabHost.newTabSpec("fragmentd").setIndicator("Coefficients"),
         		DevisFragmentD.class, null);
-        mTabHost.addTab(mTabHost.newTabSpec("fragmente").setIndicator("Tab E"),
+        mTabHost.addTab(mTabHost.newTabSpec("fragmente").setIndicator("Edition client"),
                 DevisFragmentE.class, null);
-        mTabHost.addTab(mTabHost.newTabSpec("fragmentf").setIndicator("Tab F"),
+        mTabHost.addTab(mTabHost.newTabSpec("fragmentf").setIndicator("Situation de travaux"),
         		DevisFragmentF.class, null);
-        mTabHost.addTab(mTabHost.newTabSpec("fragmentg").setIndicator("Tab G"),
+        mTabHost.addTab(mTabHost.newTabSpec("fragmentg").setIndicator("Nomenclature"),
         		DevisFragmentG.class, null);
 
         return rootView;
