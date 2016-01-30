@@ -24,8 +24,8 @@ int color title_gray 0x7f04000d
 int color white 0x7f04000e
 int dimen activity_horizontal_margin 0x7f050000
 int dimen activity_vertical_margin 0x7f050001
-int dimen fragement_devis_horizontal_margin 0x7f050002
-int dimen fragement_devis_vertical_margin 0x7f050003
+int dimen fragment_devis_horizontal_margin 0x7f050002
+int dimen fragment_devis_vertical_margin 0x7f050003
 int dimen large_brush 0x7f050006
 int dimen medium_brush 0x7f050005
 int dimen small_brush 0x7f050004
@@ -69,7 +69,7 @@ int id Button01 0x7f0b0008
 int id Button02 0x7f0b0011
 int id EditText01 0x7f0b0010
 int id EditText02 0x7f0b0005
-int id action_settings 0x7f0b0028
+int id action_settings 0x7f0b0027
 int id btnJoin 0x7f0b000f
 int id btnSend 0x7f0b0003
 int id button1 0x7f0b0007
@@ -88,7 +88,7 @@ int id icon 0x7f0b0015
 int id imgLogo 0x7f0b000e
 int id inputMsg 0x7f0b0002
 int id large_brush 0x7f0b0014
-int id lblMsgFrom 0x7f0b0026
+int id lblMsgFrom 0x7f0b0025
 int id linearLayout1 0x7f0b000c
 int id list_item_commanditaire 0x7f0b0019
 int id list_item_date 0x7f0b001b
@@ -99,13 +99,12 @@ int id llMsgCompose 0x7f0b0001
 int id medium_brush 0x7f0b0013
 int id name 0x7f0b000d
 int id new_btn 0x7f0b0020
-int id paint_colors 0x7f0b0025
 int id realtabcontent 0x7f0b001e
 int id save_btn 0x7f0b0023
 int id small_brush 0x7f0b0012
 int id textView1 0x7f0b001a
 int id title 0x7f0b0016
-int id txtMsg 0x7f0b0027
+int id txtMsg 0x7f0b0026
 int integer large_size 0x7f060002
 int integer medium_size 0x7f060001
 int integer small_size 0x7f060000

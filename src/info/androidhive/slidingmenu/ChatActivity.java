@@ -4,6 +4,7 @@ import info.androidhive.gestineo.R;
 import info.androidhive.webgroupchat.other.Message;
 import info.androidhive.webgroupchat.other.Utils;
 import info.androidhive.webgroupchat.other.WsConfig;
+import android.support.v4.app.Fragment;
 
 import java.net.URI;
 import java.net.URLEncoder;
@@ -20,8 +21,11 @@ import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -29,7 +33,7 @@ import android.widget.Toast;
 
 import com.codebutler.android_websockets.WebSocketClient;
  
-public class ChatActivity extends Activity {
+public class ChatActivity extends Fragment {
  
     // LogCat tag
     private static final String TAG = ChatActivity.class.getSimpleName();
@@ -53,21 +57,27 @@ public class ChatActivity extends Activity {
     private static final String TAG_SELF = "self", TAG_NEW = "new",
             TAG_MESSAGE = "message", TAG_EXIT = "exit";
  
+    public ChatActivity(){}
+    
+    
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+            Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_chat);
+        
+        View rootView = inflater.inflate(R.layout.activity_chat, container, false);
  
-        btnSend = (Button) findViewById(R.id.btnSend);
-        inputMsg = (EditText) findViewById(R.id.inputMsg);
-        listViewMessages = (ListView) findViewById(R.id.list_view_messages);
+        btnSend = (Button) rootView.findViewById(R.id.btnSend);
+        inputMsg = (EditText) rootView.findViewById(R.id.inputMsg);
+        listViewMessages = (ListView) rootView.findViewById(R.id.list_view_messages);
  
-        utils = new Utils(getApplicationContext());
+        utils = new Utils(getActivity());
  
         // Getting the person name from previous screen
-        Intent i = getIntent();
-        name = i.getStringExtra("name");
- 
+        //Intent i = getActivity().getIntent();
+        //name = i.getStringExtra("name");
+        name = "user";
+        
         btnSend.setOnClickListener(new View.OnClickListener() {
  
             @Override
@@ -83,7 +93,7 @@ public class ChatActivity extends Activity {
  
         listMessages = new ArrayList<Message>();
  
-        adapter = new MessagesListAdapter(this, listMessages);
+        adapter = new MessagesListAdapter(getActivity(), listMessages);
         listViewMessages.setAdapter(adapter);
  
         /**
@@ -141,6 +151,8 @@ public class ChatActivity extends Activity {
         }, null);
  
         client.connect();
+        
+        return rootView;
     }
  
     /**
@@ -221,7 +233,7 @@ public class ChatActivity extends Activity {
     }
  
     @Override
-    protected void onDestroy() {
+	public void onDestroy() {
         super.onDestroy();
          
         if(client != null & client.isConnected()){
@@ -247,13 +259,18 @@ public class ChatActivity extends Activity {
         });
     }
  
-    private void showToast(final String message) {
+    private void runOnUiThread(Runnable runnable) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void showToast(final String message) {
  
         runOnUiThread(new Runnable() {
  
             @Override
             public void run() {
-                Toast.makeText(getApplicationContext(), message,
+                Toast.makeText(getActivity(), message,
                         Toast.LENGTH_LONG).show();
             }
         });
@@ -268,7 +285,7 @@ public class ChatActivity extends Activity {
         try {
             Uri notification = RingtoneManager
                     .getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-            Ringtone r = RingtoneManager.getRingtone(getApplicationContext(),
+            Ringtone r = RingtoneManager.getRingtone(getActivity(),
                     notification);
             r.play();
         } catch (Exception e) {
