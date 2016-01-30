@@ -1,4 +1,2 @@
-/db/
-/fr/
-/info/
-/ressources/
+/info
+/.gitignore

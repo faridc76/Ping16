@@ -51,6 +51,8 @@
             android:label="@string/title_activity_activity_register" 
             android:screenOrientation="landscape">
         </activity>
+        <activity android:name="info.androidhive.slidingmenu.ChatActivity"></activity>
+        <activity android:name="info.androidhive.slidingmenu.NameActivity"></activity>
     </application>
 
 </manifest>

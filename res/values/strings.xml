@@ -32,18 +32,24 @@
     <string name="desc_list_item_icon">Item Icon</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="title_activity_activity_register">ActivityRegister</string>
-    
-    <!-- Drawing -->
-	<string name="start_new">New</string>
-	<string name="brush">Brush</string>
-	<string name="erase">Erase</string>
-	<string name="save">Save</string>
-	<string name="paint">Paint</string>
-	<string name="sml">Small</string>
-	<string name="med">Medium</string>
-	<string name="lrg">Large</string>
 
-    
-   
+    <!-- Drawing -->
+    <string name="start_new">New</string>
+    <string name="brush">Brush</string>
+    <string name="erase">Erase</string>
+    <string name="save">Save</string>
+    <string name="paint">Paint</string>
+    <string name="sml">Small</string>
+    <string name="med">Medium</string>
+    <string name="lrg">Large</string>
+
+    <!-- WEB CHAT -->
+
+    <string name="title">GestIneo Chat App</string>
+    <string name="enter_name">Entrer votre nom</string>
+    <string name="btn_join">JOINDRE</string>
+    <string name="btn_send">Envoyer</string>
+
+    <!-- WEB CHAT -->
 
 </resources>
