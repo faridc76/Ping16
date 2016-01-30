@@ -195,7 +195,7 @@ public class MainActivity extends FragmentActivity {
 			fragment = new DevisFragmentList();
 			break;
 		case 5:
-			fragment = new ContactFragment();
+			fragment = new ChatActivity();
 			break;
 
 		default:
