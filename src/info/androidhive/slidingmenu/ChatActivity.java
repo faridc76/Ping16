@@ -148,7 +148,7 @@ public class ChatActivity extends Fragment {
             public void onError(Exception error) {
                 Log.e(TAG, "Error! : " + error);
  
-                showToast("Error! : " + error);
+                //showToast("Error! : " + error);
             }
  
         }, null);
@@ -262,11 +262,6 @@ public class ChatActivity extends Fragment {
         });
     }
  
-    private void runOnUiThread(Runnable runnable) {
-		// TODO Auto-generated method stub
-		
-	}
-
 	private void showToast(final String message) {
  
 		handler.post(new Runnable() {
