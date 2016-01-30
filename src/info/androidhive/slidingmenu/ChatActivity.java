@@ -57,6 +57,9 @@ public class ChatActivity extends Fragment {
     private static final String TAG_SELF = "self", TAG_NEW = "new",
             TAG_MESSAGE = "message", TAG_EXIT = "exit";
  
+    // Background threading
+    android.os.Handler handler = new android.os.Handler();
+    
     public ChatActivity(){}
     
     
@@ -245,7 +248,7 @@ public class ChatActivity extends Fragment {
      * Appending message to list view
      * */
     private void appendMessage(final Message m) {
-        runOnUiThread(new Runnable() {
+    	handler.post(new Runnable() {
  
             @Override
             public void run() {
@@ -266,7 +269,7 @@ public class ChatActivity extends Fragment {
 
 	private void showToast(final String message) {
  
-        runOnUiThread(new Runnable() {
+		handler.post(new Runnable() {
  
             @Override
             public void run() {
