@@ -12,7 +12,7 @@ import android.widget.Toast;
 import fr.ineo.gestineo.dao.IUtilisateurDB;
 import fr.ineo.gestineo.dao.db.UtilisateurDB;
 import fr.ineo.gestineo.dto.Utilisateur;
-import info.androidhive.slidingmenu.MainActivity;
+import info.androidhive.slidingmenu.ChantierActivity;
 
 
 /**
@@ -43,13 +43,13 @@ public class CheckLoginRequete extends AsyncTask<Object, Void, Utilisateur> {
 			if(result != null) {
 				Toast.makeText(context, String.valueOf("Vous êtes connectés en tant que " + result.getPrenom() + " " + result.getNom()), Toast.LENGTH_SHORT).show();
 				
-				SharedPreferences sharedPreferences = context.getSharedPreferences("mesPrefs", context.MODE_PRIVATE);
+				SharedPreferences sharedPreferences = context.getSharedPreferences("mesPrefs", Context.MODE_PRIVATE);
 				Editor editor = sharedPreferences.edit();
 				Gson gson = new Gson();
 				editor.putString("utilisateur", gson.toJson(result));
 				editor.commit();
 				
-				Intent intent = new Intent(context, MainActivity.class);
+				Intent intent = new Intent(context, ChantierActivity.class);
 				intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 				
 				context.startActivity(intent);

@@ -22,7 +22,7 @@ public class AffaireDB implements IAffaireDB {
 	public final static String DOCUMENT = "http://faridchouakria.free.fr/documents/";
 	
 	@Override
-	public List<String> listeAffaire(int id_utilisateur) {
+	public List<String> listeAffaire(int idUtilisateur) {
 		String result = "";
 		OutputStreamWriter writer = null;
 		BufferedReader reader = null;
@@ -36,7 +36,7 @@ public class AffaireDB implements IAffaireDB {
 			connection.setDoOutput(true); // Pour pouvoir envoyer des donn�es
 			connection.setRequestMethod("POST");
 			writer = new OutputStreamWriter(connection.getOutputStream());
-			writer.write("id_utilisateur=" + String.valueOf(id_utilisateur));
+			writer.write("id_utilisateur=" + String.valueOf(idUtilisateur));
 			writer.flush();
 			reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
 			String ligne;
@@ -63,7 +63,7 @@ public class AffaireDB implements IAffaireDB {
 	}
 
 	@Override
-	public Affaire recupAffaire(String str_affaire) {
+	public Affaire recupAffaire(String nomAffaire) {
 		String result = "";
 		Affaire affaire = null;
 		OutputStreamWriter writer = null;
@@ -77,7 +77,7 @@ public class AffaireDB implements IAffaireDB {
 			connection.setDoOutput(true); // Pour pouvoir envoyer des donn�es
 			connection.setRequestMethod("POST");
 			writer = new OutputStreamWriter(connection.getOutputStream());
-			writer.write("nom_affaire=" + str_affaire);
+			writer.write("nom_affaire=" + nomAffaire);
 			writer.flush();
 			reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
 			String ligne;
@@ -107,7 +107,7 @@ public class AffaireDB implements IAffaireDB {
 	}
 
 	@Override
-	public List<String> listeDocument(String nom_affaire) {
+	public List<String> listeDocument(String nomAffaire) {
 		String result = "";
 		OutputStreamWriter writer = null;
 		BufferedReader reader = null;
@@ -121,7 +121,7 @@ public class AffaireDB implements IAffaireDB {
 			connection.setDoOutput(true); // Pour pouvoir envoyer des donn�es
 			connection.setRequestMethod("POST");
 			writer = new OutputStreamWriter(connection.getOutputStream());
-			writer.write("affaire=" + String.valueOf(nom_affaire));
+			writer.write("affaire=" + String.valueOf(nomAffaire));
 			writer.flush();
 			reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
 			String ligne;

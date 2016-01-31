@@ -6,11 +6,14 @@ import info.androidhive.slidingmenu.model.NavDrawerItem;
 
 import java.util.ArrayList;
 
+import com.google.gson.Gson;
+
 import android.app.ActionBar;
 import android.app.Activity;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.app.FragmentManager;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.graphics.Color;
@@ -28,7 +31,9 @@ import android.view.View;
 import android.view.ViewParent;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
+import fr.ineo.gestineo.dto.Utilisateur;
 
 public class MainActivity extends FragmentActivity {
 	private DrawerLayout mDrawerLayout;
@@ -54,7 +59,7 @@ public class MainActivity extends FragmentActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		
+
 
 		mTitle = mDrawerTitle = getTitle();
 		
@@ -176,45 +181,47 @@ public class MainActivity extends FragmentActivity {
 	 * Diplaying fragment view for selected nav drawer list item
 	 * */
 	private void displayView(int position) {
-		// update the main content by replacing fragments
-		Fragment fragment = null;
-		switch (position) {
-		case 0:
-			fragment = new ChantierFragment();
-			break;
-		case 1:
-			fragment = new PlanFragment();
-			break;
-		case 2:
-			fragment = new BdcFragment();
-			break;
-		case 3:
-			fragment = new CodisFragment();
-			break;
-		case 4:
-			fragment = new DevisFragmentList();
-			break;
-		case 5:
-			fragment = new ChatActivity();
-			break;
-
-		default:
-			break;
-		}
-
-		if (fragment != null) {
-			android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
-			fragmentManager.beginTransaction()
-					.replace(R.id.frame_container, fragment).addToBackStack("tag").commit();
-
-			// update selected item and title, then close the drawer
-			mDrawerList.setItemChecked(position, true);
-			mDrawerList.setSelection(position);
-			setTitle(navMenuTitles[position]);
-			mDrawerLayout.closeDrawer(mDrawerList);
+		if (position == 0) {
+			System.out.println("Choix chantier");
 		} else {
-			// error in creating fragment
-			Log.e("MainActivity", "Error in creating fragment");
+			// update the main content by replacing fragments
+			Fragment fragment = null;
+
+			switch (position) {
+			case 1:
+				fragment = new PlanFragment();
+				break;
+			case 2:
+				fragment = new BdcFragment();
+				break;
+			case 3:
+				fragment = new CodisFragment();
+				break;
+			case 4:
+				fragment = new DevisFragmentList();
+				break;
+			case 5:
+				fragment = new ChatActivity();
+				break;
+
+			default:
+				break;
+			}
+
+			if (fragment != null) {
+				android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
+				fragmentManager.beginTransaction().replace(R.id.frame_container, fragment).addToBackStack("tag")
+						.commit();
+
+				// update selected item and title, then close the drawer
+				mDrawerList.setItemChecked(position, true);
+				mDrawerList.setSelection(position);
+				setTitle(navMenuTitles[position]);
+				mDrawerLayout.closeDrawer(mDrawerList);
+			} else {
+				// error in creating fragment
+				Log.e("MainActivity", "Error in creating fragment");
+			}
 		}
 	}
 
