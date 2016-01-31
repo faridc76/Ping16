@@ -41,7 +41,7 @@ public class CheckLoginRequete extends AsyncTask<Object, Void, Utilisateur> {
 	protected void onPostExecute(Utilisateur result) {
 		if(context != null && matricule != null) {
 			if(result != null) {
-				Toast.makeText(context, String.valueOf("Vous �tes connect�s en tant que " + result.getPrenom() + " " + result.getNom()), Toast.LENGTH_SHORT).show();
+				Toast.makeText(context, String.valueOf("Vous êtes connectés en tant que " + result.getPrenom() + " " + result.getNom()), Toast.LENGTH_SHORT).show();
 				
 				SharedPreferences sharedPreferences = context.getSharedPreferences("mesPrefs", context.MODE_PRIVATE);
 				Editor editor = sharedPreferences.edit();

@@ -38,8 +38,8 @@ public class LoginActivity extends Activity {
 	}
 	public void openMainMenu(View view){
 		
-		EditText matricule = (EditText) findViewById(R.id.EditText02);
-		EditText password = (EditText) findViewById(R.id.EditText01);
+		EditText matricule = (EditText) findViewById(R.id.ETMatricule);
+		EditText password = (EditText) findViewById(R.id.ETPassword);
 		
 		// Pour tester le matricule
 		new CheckLoginRequete().execute(matricule.getText().toString(), password.getText().toString(), this.getApplicationContext());

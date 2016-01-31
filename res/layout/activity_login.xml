@@ -11,18 +11,18 @@
     android:focusableInTouchMode="true">
 
     <EditText
-        android:id="@+id/editText1"
+        android:id="@+id/ETPassword"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Mot de passe"
+        android:inputType="textPassword|textPersonName"
+        android:hint="Mot de passe"
         android:textColor="@color/lightblue_text" />
 
     <EditText
-        android:id="@+id/EditText02"
+        android:id="@+id/ETMatricule"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -30,43 +30,30 @@
         android:layout_marginTop="245dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Login"
+        android:hint="Matricule"
         android:textColor="@color/lightblue_text" />
-
-    <CheckBox
-        android:id="@+id/checkBox1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editText1"
-        android:layout_below="@+id/editText1"
-        android:layout_marginTop="35dp" />
 
     <Button
         android:id="@+id/button1"
-        android:onClick="openMainMenu"
         android:layout_width="150dp"
         android:layout_height="40dp"
-        android:layout_alignLeft="@+id/checkBox1"
-        android:layout_below="@+id/checkBox1"
-        android:layout_marginTop="45dp"
+        android:layout_alignLeft="@+id/ETPassword"
+        android:layout_alignRight="@+id/ETPassword"
+        android:layout_below="@+id/ETPassword"
+        android:layout_marginTop="116dp"
         android:background="@drawable/buttonstyle"
+        android:onClick="openMainMenu"
         android:text="Se Connecter"
         android:textColor="@color/lightblue_text"
         android:textSize="20sp"
         android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/Button01"
-        android:onClick="openRegister"
-        android:layout_width="150dp"
-        android:layout_height="40dp"
-        android:layout_alignRight="@+id/editText1"
-        android:layout_alignTop="@+id/button1"
-        android:layout_marginTop="0dp"
-        android:background="@drawable/buttonstyle"
-        android:text="S&apos;inscrire"
-        android:textColor="#85A6D1"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+    <CheckBox
+        android:id="@+id/checkBox1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/ETPassword"
+        android:layout_below="@+id/ETPassword"
+        android:layout_marginTop="41dp" />
     
 </RelativeLayout>
