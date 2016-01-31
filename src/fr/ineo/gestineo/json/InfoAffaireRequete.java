@@ -3,6 +3,7 @@ package fr.ineo.gestineo.json;
 import com.google.gson.Gson;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.AsyncTask;
@@ -10,6 +11,8 @@ import android.widget.Toast;
 import fr.ineo.gestineo.dao.IAffaireDB;
 import fr.ineo.gestineo.dao.db.AffaireDB;
 import fr.ineo.gestineo.dto.Affaire;
+import info.androidhive.slidingmenu.ChantierActivity;
+import info.androidhive.slidingmenu.MainActivity;
 
 
 /**
@@ -42,6 +45,11 @@ public class InfoAffaireRequete extends AsyncTask<Object, Void, Affaire> {
 				Gson gson = new Gson();
 				editor.putString("affaire", gson.toJson(result));
 				editor.commit();
+				
+				Intent intent = new Intent(context, MainActivity.class);
+				intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+				
+				context.startActivity(intent);
 			}
 			else {
 				Toast.makeText(context, String.valueOf("nomAffaire ne doit pas �tre null"), Toast.LENGTH_SHORT).show();

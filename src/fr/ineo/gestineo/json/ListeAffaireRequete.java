@@ -43,19 +43,14 @@ public class ListeAffaireRequete extends AsyncTask<Object, Void, List<String>> {
 				//listView.setAdapter(adp1);
 				ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(context.getApplicationContext(), info.androidhive.gestineo.R.layout.fragment_chantier_list_item, info.androidhive.gestineo.R.id.list_item_text, result);
 		        listView.setAdapter(arrayAdapter);
-				listView.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+		        
+				listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
 					@Override
-					public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+					public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 						System.out.println("id : " + id);
 		        		System.out.println("position : " + position);
 						new InfoAffaireRequete().execute(result.get(position), context);
-					}
-
-					@Override
-					public void onNothingSelected(AdapterView<?> parent) {
-						// TODO Auto-generated method stub
-						
 					}
                     
                 });
