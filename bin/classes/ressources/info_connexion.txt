@@ -1,9 +1,0 @@
-Base de données : 
-	URL : http://sql.free.fr
-	Login : gestineo
-	Mot de passe : pinggroupe16
-Filezilla : 
-	Hôte: ftpperso.free.fr
-	Identifiant : gestineo
-	mot de passe : pinggroupe16
-Adresse du site : gestineo.free.fr

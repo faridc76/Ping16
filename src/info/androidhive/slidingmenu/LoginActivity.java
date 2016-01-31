@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
+import fr.ineo.gestineo.json.CheckLoginRequete;
 import info.androidhive.gestineo.R;
 
 public class LoginActivity extends Activity {
@@ -35,8 +37,16 @@ public class LoginActivity extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 	public void openMainMenu(View view){
-		Intent intent = new Intent(this, MainActivity.class);
-		startActivity(intent);
+		
+		EditText matricule = (EditText) findViewById(R.id.EditText02);
+		EditText password = (EditText) findViewById(R.id.EditText01);
+		
+		// Pour tester le matricule
+		new CheckLoginRequete().execute(matricule.getText().toString(), password.getText().toString(), this.getApplicationContext());
+		// Il faudra mettre le checkLogin � la place !
+		
+		//Intent intent = new Intent(this, MainActivity.class);
+		//startActivity(intent);
 	}
 	public void openRegister(View view){
 		Intent intent = new Intent(this, RegisterActivity.class);

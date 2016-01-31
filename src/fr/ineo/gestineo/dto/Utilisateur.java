@@ -1,4 +1,4 @@
-package fr.free.gestineo;
+package fr.ineo.gestineo.dto;
 
 public class Utilisateur {
 
@@ -9,10 +9,11 @@ public class Utilisateur {
 	private String numero;
 	private String bureau;
 	private String mail;
-	private String fonction;
-	private String password;
+	private int fonction;
 	
-	public Utilisateur () {};
+	public Utilisateur () {
+		id = 0;
+	};
 	
 	public int getId() {
 		return id;
@@ -70,20 +71,12 @@ public class Utilisateur {
 		this.mail = mail;
 	}
 
-	public String getFonction() {
+	public int getFonction() {
 		return fonction;
 	}
 
-	public void setFonction(String fonction) {
+	public void setFonction(int fonction) {
 		this.fonction = fonction;
 	}
 
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-	
 }
