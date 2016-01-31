@@ -2,14 +2,12 @@ package fr.ineo.gestineo.json;
 
 import java.util.List;
 
-import android.R;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Spinner;
 import android.widget.Toast;
 import fr.ineo.gestineo.dao.IAffaireDB;
 import fr.ineo.gestineo.dao.db.AffaireDB;
@@ -43,6 +41,8 @@ public class ListeAffaireRequete extends AsyncTask<Object, Void, List<String>> {
 				System.out.println(result);
 				//ArrayAdapter<String> adp1 = new ArrayAdapter<String>(context.getApplicationContext(), R.id.list_item_text, result);
 				//listView.setAdapter(adp1);
+				ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(context.getApplicationContext(), info.androidhive.gestineo.R.layout.fragment_chantier_list_item, info.androidhive.gestineo.R.id.list_item_text, result);
+		        listView.setAdapter(arrayAdapter);
 				listView.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
 					@Override
