@@ -2,7 +2,6 @@ package info.androidhive.slidingmenu;
 
 import info.androidhive.gestineo.R;
 import info.androidhive.slidingmenu.adapter.NavDrawerListAdapter;
-import info.androidhive.slidingmenu.model.NavDrawerItem;
 
 import java.util.ArrayList;
 
@@ -33,6 +32,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import fr.ineo.gestineo.dto.NavDrawerItem;
 import fr.ineo.gestineo.dto.Utilisateur;
 
 public class MainActivity extends FragmentActivity {
@@ -201,7 +201,7 @@ public class MainActivity extends FragmentActivity {
 				fragment = new DevisFragmentList();
 				break;
 			case 5:
-				fragment = new ChatActivity();
+				fragment = new ChatFragment();
 				break;
 
 			default:

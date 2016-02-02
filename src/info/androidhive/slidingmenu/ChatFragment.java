@@ -1,9 +1,6 @@
 package info.androidhive.slidingmenu;
  
 import info.androidhive.gestineo.R;
-import info.androidhive.webgroupchat.other.Message;
-import info.androidhive.webgroupchat.other.Utils;
-import info.androidhive.webgroupchat.other.WsConfig;
 import android.support.v4.app.Fragment;
 
 import java.net.URI;
@@ -27,13 +24,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
+import fr.ineo.gestineo.dto.Message;
+import fr.ineo.gestineo.utils.Utils;
+import fr.ineo.gestineo.utils.WsConfig;
 
 import com.codebutler.android_websockets.WebSocketClient;
  
-public class ChatActivity extends Fragment {
+public class ChatFragment extends Fragment {
  
     // LogCat tag
-    private static final String TAG = ChatActivity.class.getSimpleName();
+    private static final String TAG = ChatFragment.class.getSimpleName();
  
     private Button btnSend;
     private EditText inputMsg;
@@ -57,7 +57,7 @@ public class ChatActivity extends Fragment {
     // Background threading
     android.os.Handler handler = new android.os.Handler();
     
-    public ChatActivity(){}
+    public ChatFragment(){}
     
     
     @SuppressWarnings("deprecation")
@@ -83,7 +83,8 @@ public class ChatActivity extends Fragment {
  
             @Override
             public void onClick(View v) {
-                // Sending message to web socket server
+
+            	// Sending message to web socket server
                 sendMessageToServer(utils.getSendMessageJSON(inputMsg.getText()
                         .toString()));
  
@@ -93,7 +94,8 @@ public class ChatActivity extends Fragment {
         });
  
         listMessages = new ArrayList<Message>();
- 
+        listMessages.add(new Message("Toi", "false", false));
+        listMessages.add(new Message("Moi", "true", true));
         adapter = new MessagesListAdapter(getActivity(), listMessages);
         listViewMessages.setAdapter(adapter);
  

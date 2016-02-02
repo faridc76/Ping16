@@ -1,7 +1,6 @@
 package info.androidhive.slidingmenu.adapter;
 
 import info.androidhive.gestineo.R;
-import info.androidhive.slidingmenu.model.NavDrawerItem;
 
 import java.util.ArrayList;
 
@@ -14,6 +13,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import fr.ineo.gestineo.dto.NavDrawerItem;
 
 public class NavDrawerListAdapter extends BaseAdapter {
 	

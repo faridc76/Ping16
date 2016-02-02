@@ -14,40 +14,39 @@ import android.view.MotionEvent;
 import android.view.View;
 
 /**
- * This is demo code to accompany the Mobiletuts+ tutorial series:
- * - Android SDK: Create a Drawing App
+ * This is demo code to accompany the Mobiletuts+ tutorial series: - Android
+ * SDK: Create a Drawing App
  * 
- * Sue Smith
- * August 2013
+ * Sue Smith August 2013
  *
  */
 public class DrawingView extends View {
 
-	//drawing path
+	// drawing path
 	private Path drawPath;
-	//drawing and canvas paint
+	// drawing and canvas paint
 	private Paint drawPaint, canvasPaint;
-	//initial color
+	// initial color
 	private int paintColor = 0xFF666666;
-	//canvas
+	// canvas
 	private Canvas drawCanvas;
-	//canvas bitmap
+	// canvas bitmap
 	private Bitmap canvasBitmap;
-	//brush sizes
+	// brush sizes
 	private float brushSize, lastBrushSize;
-	//erase flag
-	private boolean erase=false;
+	// erase flag
+	private boolean erase = false;
 
-	public DrawingView(Context context, AttributeSet attrs){
+	public DrawingView(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		setupDrawing();
 	}
 
-	//setup drawing
-	private void setupDrawing(){
+	// setup drawing
+	private void setupDrawing() {
 
-		//prepare for drawing and setup paint stroke properties
-		//brushSize = getResources().getInteger(R.integer.medium_size);
+		// prepare for drawing and setup paint stroke properties
+		// brushSize = getResources().getInteger(R.integer.medium_size);
 		lastBrushSize = brushSize;
 		drawPath = new Path();
 		drawPaint = new Paint();
@@ -60,7 +59,7 @@ public class DrawingView extends View {
 		canvasPaint = new Paint(Paint.DITHER_FLAG);
 	}
 
-	//size assigned to view
+	// size assigned to view
 	@Override
 	protected void onSizeChanged(int w, int h, int oldw, int oldh) {
 		super.onSizeChanged(w, h, oldw, oldh);
@@ -68,19 +67,19 @@ public class DrawingView extends View {
 		drawCanvas = new Canvas(canvasBitmap);
 	}
 
-	//draw the view - will be called after touch event
+	// draw the view - will be called after touch event
 	@Override
 	protected void onDraw(Canvas canvas) {
 		canvas.drawBitmap(canvasBitmap, 0, 0, canvasPaint);
 		canvas.drawPath(drawPath, drawPaint);
 	}
 
-	//register user touches as drawing action
+	// register user touches as drawing action
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
 		float touchX = event.getX();
 		float touchY = event.getY();
-		//respond to down, move and up events
+		// respond to down, move and up events
 		switch (event.getAction()) {
 		case MotionEvent.ACTION_DOWN:
 			drawPath.moveTo(touchX, touchY);
@@ -96,45 +95,53 @@ public class DrawingView extends View {
 		default:
 			return false;
 		}
-		//redraw
+		// redraw
 		invalidate();
 		return true;
 
 	}
 
-	//update color
-	public void setColor(String newColor){
+	// update color
+	public void setColor(String newColor) {
 		invalidate();
 		paintColor = Color.parseColor(newColor);
 		drawPaint.setColor(paintColor);
 	}
 
-	//set brush size
-	public void setBrushSize(float newSize){
-		float pixelAmount = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 
-				newSize, getResources().getDisplayMetrics());
-		brushSize=pixelAmount;
+	// set brush size
+	public void setBrushSize(float newSize) {
+		float pixelAmount = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, newSize,
+				getResources().getDisplayMetrics());
+		brushSize = pixelAmount;
 		drawPaint.setStrokeWidth(brushSize);
 	}
 
-	//get and set last brush size
-	public void setLastBrushSize(float lastSize){
-		lastBrushSize=lastSize;
+	// get and set last brush size
+	public void setLastBrushSize(float lastSize) {
+		lastBrushSize = lastSize;
 	}
-	public float getLastBrushSize(){
+
+	public float getLastBrushSize() {
 		return lastBrushSize;
 	}
 
-	//set erase true or false
-	public void setErase(boolean isErase){
-		erase=isErase;
-		if(erase) drawPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
-		else drawPaint.setXfermode(null);
+	// set erase true or false
+	public void setErase(boolean isErase) {
+		erase = isErase;
+		if (erase) {
+			drawPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
+			drawPaint.setColor(Color.WHITE);
+		} else {
+			drawPaint.setXfermode(null);
+			drawPaint.setColor(Color.RED);
+		}
 	}
 
-	//start new drawing
-	public void startNew(){
+	// start new drawing
+	public void startNew() {
 		drawCanvas.drawColor(0, PorterDuff.Mode.CLEAR);
+		//On se remet sur le mode dessins
+		setErase(false);
 		invalidate();
 	}
 }

@@ -38,7 +38,7 @@ public class ContactFragment extends Fragment {
         	public void onItemClick(AdapterView<?> parent, View view, int position, long id){
         		FragmentManager fm = getFragmentManager();
                 FragmentTransaction ft = fm.beginTransaction();
-                ChatActivity df = new ChatActivity();
+                ChatFragment df = new ChatFragment();
                 ft.replace(R.id.frame_container, df);
                 ft.addToBackStack(null);
                 ft.commit();

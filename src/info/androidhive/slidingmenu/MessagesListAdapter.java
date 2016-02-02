@@ -2,8 +2,6 @@ package info.androidhive.slidingmenu;
 
  
 import info.androidhive.gestineo.R;
-import info.androidhive.webgroupchat.other.Message;
-
 import java.util.List;
 
 import android.annotation.SuppressLint;
@@ -14,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+import fr.ineo.gestineo.dto.Message;
  
 public class MessagesListAdapter extends BaseAdapter {
  
