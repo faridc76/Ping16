@@ -189,18 +189,21 @@ public class MainActivity extends FragmentActivity {
 
 			switch (position) {
 			case 1:
-				fragment = new PlanFragment();
+				fragment = new ChantierFragment();
 				break;
 			case 2:
-				fragment = new BdcFragment();
+				fragment = new PlanFragment();
 				break;
 			case 3:
-				fragment = new CodisFragment();
+				fragment = new BdcFragment();
 				break;
 			case 4:
-				fragment = new DevisFragmentList();
+				fragment = new CodisFragment();
 				break;
 			case 5:
+				fragment = new DevisFragmentList();
+				break;
+			case 6:
 				fragment = new ChatFragment();
 				break;
 
