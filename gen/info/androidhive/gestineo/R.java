@@ -97,11 +97,12 @@ public final class R {
         public static final int new_pic=0x7f02001c;
         public static final int paint=0x7f02001d;
         public static final int paint_pressed=0x7f02001e;
-        public static final int plan_ic=0x7f02001f;
-        public static final int save=0x7f020020;
-        public static final int small=0x7f020021;
-        public static final int test_hd=0x7f020022;
-        public static final int tile_bg=0x7f020023;
+        public static final int plan_a=0x7f02001f;
+        public static final int plan_ic=0x7f020020;
+        public static final int save=0x7f020021;
+        public static final int small=0x7f020022;
+        public static final int test_hd=0x7f020023;
+        public static final int tile_bg=0x7f020024;
     }
     public static final class id {
         public static final int Button01=0x7f0b0013;
