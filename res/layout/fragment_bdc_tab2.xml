@@ -52,7 +52,7 @@
             android:layout_height="50dp"
             android:layout_alignLeft="@+id/editText2"
             android:layout_below="@+id/TextView01"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="40dp"
             android:ems="10"
             android:hint="Objet de la préstation "
             android:inputType="textMultiLine"
@@ -103,7 +103,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="87dp"
+            android:layout_marginTop="40dp"
             android:text="Informations demandeur"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="#85A6D1" />
@@ -114,7 +114,7 @@
             android:layout_height="36dp"
             android:layout_below="@+id/editText2"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="44dp"
+            android:layout_marginTop="40dp"
             android:text="Informations prestation"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="#85A6D1" />
