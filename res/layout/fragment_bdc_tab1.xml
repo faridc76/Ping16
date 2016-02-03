@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="true" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="986dp"
+        android:background="@color/fragment_bg"
+        android:orientation="vertical" >
+
+        <EditText
+            android:id="@+id/editText1"
+            android:layout_width="1020dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/textView1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:ems="10"
+            android:hint="N° Chantier"
+            android:inputType="textMultiLine"
+            android:textColor="#85A6D1" />
+
+        <EditText
+            android:id="@+id/EditText01"
+            android:layout_width="1020dp"
+            android:layout_height="50dp"
+            android:layout_alignLeft="@+id/editText1"
+            android:layout_below="@+id/editText1"
+            android:layout_marginTop="15dp"
+            android:ems="10"
+            android:hint="Intitulé chantier "
+            android:inputType="textMultiLine"
+            android:textColor="#85A6D1" />
+
+        <EditText
+            android:id="@+id/editText2"
+            android:layout_width="1020dp"
+            android:layout_height="50dp"
+            android:layout_alignLeft="@+id/EditText01"
+            android:layout_below="@+id/EditText01"
+            android:layout_marginTop="15dp"
+            android:ems="10"
+            android:hint="N° téléphone"
+            android:inputType="number"
+            android:textColor="#85A6D1" />
+
+        <EditText
+            android:id="@+id/EditText03"
+            android:layout_width="1020dp"
+            android:layout_height="50dp"
+            android:layout_alignLeft="@+id/EditText02"
+            android:layout_below="@+id/EditText02"
+            android:layout_marginTop="15dp"
+            android:ems="10"
+            android:hint="Adresse de livraison"
+            android:inputType="textMultiLine"
+            android:textColor="#85A6D1" />
+
+        <!--
+          <EditText
+        android:id="@+id/EditText04"
+        android:layout_width="1020dp"
+        android:layout_height="50dp"
+        android:layout_alignLeft="@+id/EditText03"
+        android:layout_below="@+id/EditText03"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        android:text="erferf"
+        android:textColor="#85A6D1" />
+        -->
+
+
+        <!--
+             <Spinner
+            android:id="@+id/spinner1"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_alignLeft="@+id/EditText03"
+            android:layout_below="@+id/EditText03"
+            android:layout_marginTop="15dp"
+            android:layout_toLeftOf="@+id/TextView01"
+            android:textColor="#85A6D1" />
+        -->
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="52dp"
+            android:layout_marginTop="40dp"
+            android:text="Informations"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#85A6D1" />
+
+        <EditText
+            android:id="@+id/EditText02"
+            android:layout_width="1020dp"
+            android:layout_height="50dp"
+            android:layout_alignLeft="@+id/editText2"
+            android:layout_below="@+id/editText2"
+            android:layout_marginTop="15dp"
+            android:ems="10"
+            android:hint="Personne à contacter"
+            android:inputType="textMultiLine"
+            android:textColor="#85A6D1" >
+
+            
+        </EditText>
+
+        <EditText
+            android:id="@+id/EditText04"
+            android:layout_width="1020dp"
+            android:layout_height="50dp"
+            android:layout_alignLeft="@+id/EditText03"
+            android:layout_below="@+id/EditText03"
+            android:layout_marginTop="15dp"
+            android:ems="10"
+            android:hint="Observations"
+            android:inputType="textMultiLine"
+            android:textColor="#85A6D1" />
+
+        <TextView
+            android:id="@+id/TextView01"
+            android:layout_width="115dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/EditText04"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:text="Commande"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#85A6D1" />
+
+        <EditText
+            android:id="@+id/EditText05"
+            android:layout_width="1020dp"
+            android:layout_height="50dp"
+            android:layout_alignLeft="@+id/EditText04"
+            android:layout_below="@+id/TextView01"
+            android:layout_marginTop="40dp"
+            android:ems="10"
+            android:hint="Marque"
+            android:inputType="textMultiLine"
+            android:textColor="#85A6D1" />
+
+        <EditText
+            android:id="@+id/EditText06"
+            android:layout_width="1020dp"
+            android:layout_height="50dp"
+            android:layout_alignLeft="@+id/EditText05"
+            android:layout_below="@+id/EditText05"
+            android:layout_marginTop="15dp"
+            android:ems="10"
+            android:hint="Référence"
+            android:inputType="textMultiLine"
+            android:textColor="#85A6D1" />
+
+        <EditText
+            android:id="@+id/EditText07"
+            android:layout_width="1020dp"
+            android:layout_height="50dp"
+            android:layout_alignLeft="@+id/EditText06"
+            android:layout_below="@+id/EditText06"
+            android:layout_marginTop="15dp"
+            android:ems="10"
+            android:hint="Désignation de la fourniture"
+            android:inputType="textMultiLine"
+            android:textColor="#85A6D1" />
+
+        <EditText
+            android:id="@+id/EditText08"
+            android:layout_width="500dp"
+            android:layout_height="50dp"
+            android:layout_alignLeft="@+id/EditText07"
+            android:layout_below="@+id/EditText07"
+            android:layout_marginTop="15dp"
+            android:ems="10"
+            android:hint="Quantité"
+            android:inputType="textMultiLine"
+            android:textColor="#85A6D1" />
+
+        <EditText
+            android:id="@+id/EditText09"
+            android:layout_width="500dp"
+            android:layout_height="50dp"
+            android:layout_alignRight="@+id/EditText07"
+            android:layout_alignTop="@+id/EditText08"
+            android:ems="10"
+            android:hint="Date de Livraison"
+            android:inputType="textMultiLine"
+            android:textColor="#85A6D1" />
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="220dp"
+            android:layout_height="60dp"
+            android:layout_alignRight="@+id/EditText09"
+            android:layout_below="@+id/EditText09"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/buttonstyle"
+            android:text="Envoyer"
+            android:textColor="#85A6D1"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+</ScrollView>

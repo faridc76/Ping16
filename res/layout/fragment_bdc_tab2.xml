@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="true" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="986dp"
+        android:background="@color/fragment_bg"
+        android:orientation="vertical" >
+
+        <EditText
+            android:id="@+id/editText1"
+            android:layout_width="1020dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/textView1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:ems="10"
+            android:hint="Nom"
+            android:inputType="textMultiLine"
+            android:textColor="#85A6D1" />
+
+        <EditText
+            android:id="@+id/EditText01"
+            android:layout_width="1020dp"
+            android:layout_height="50dp"
+            android:layout_alignLeft="@+id/editText1"
+            android:layout_below="@+id/editText1"
+            android:layout_marginTop="15dp"
+            android:ems="10"
+            android:hint="Adresse "
+            android:inputType="textMultiLine"
+            android:textColor="#85A6D1" />
+
+        <EditText
+            android:id="@+id/editText2"
+            android:layout_width="1020dp"
+            android:layout_height="50dp"
+            android:layout_alignLeft="@+id/EditText01"
+            android:layout_below="@+id/EditText01"
+            android:layout_marginTop="15dp"
+            android:ems="10"
+            android:hint="Numéro de téléphone"
+            android:inputType="number"
+            android:textColor="#85A6D1" />
+
+        <EditText
+            android:id="@+id/EditText02"
+            android:layout_width="1020dp"
+            android:layout_height="50dp"
+            android:layout_alignLeft="@+id/editText2"
+            android:layout_below="@+id/TextView01"
+            android:layout_marginTop="15dp"
+            android:ems="10"
+            android:hint="Objet de la préstation "
+            android:inputType="textMultiLine"
+            android:textColor="#85A6D1" />
+
+        <EditText
+            android:id="@+id/EditText03"
+            android:layout_width="1020dp"
+            android:layout_height="50dp"
+            android:layout_alignLeft="@+id/EditText02"
+            android:layout_below="@+id/EditText02"
+            android:layout_marginTop="15dp"
+            android:ems="10"
+            android:hint="Désignation tache "
+            android:inputType="textMultiLine"
+            android:textColor="#85A6D1" />
+
+        <!--
+          <EditText
+        android:id="@+id/EditText04"
+        android:layout_width="1020dp"
+        android:layout_height="50dp"
+        android:layout_alignLeft="@+id/EditText03"
+        android:layout_below="@+id/EditText03"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        android:text="erferf"
+        android:textColor="#85A6D1" />
+        -->
+
+
+        <!--
+             <Spinner
+            android:id="@+id/spinner1"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_alignLeft="@+id/EditText03"
+            android:layout_below="@+id/EditText03"
+            android:layout_marginTop="15dp"
+            android:layout_toLeftOf="@+id/TextView01"
+            android:textColor="#85A6D1" />
+        -->
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="265dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="87dp"
+            android:text="Informations demandeur"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#85A6D1" />
+
+        <TextView
+            android:id="@+id/TextView01"
+            android:layout_width="240dp"
+            android:layout_height="36dp"
+            android:layout_below="@+id/editText2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="44dp"
+            android:text="Informations prestation"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#85A6D1" />
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="220dp"
+            android:layout_height="60dp"
+            android:layout_alignRight="@+id/EditText03"
+            android:layout_below="@+id/EditText03"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/buttonstyle"
+            android:text="Envoyer"
+            android:textColor="#85A6D1"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+</ScrollView>
