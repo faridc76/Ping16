@@ -180,7 +180,7 @@
             android:layout_marginTop="15dp"
             android:ems="10"
             android:hint="Quantité"
-            android:inputType="textMultiLine"
+            android:inputType="number"
             android:textColor="#85A6D1" />
 
         <EditText
@@ -191,7 +191,7 @@
             android:layout_alignTop="@+id/EditText08"
             android:ems="10"
             android:hint="Date de Livraison"
-            android:inputType="textMultiLine"
+            android:inputType="date"
             android:textColor="#85A6D1" />
 
         <Button
