@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fragment_bg"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="230dp"
+        android:layout_marginRight="230dp"
+        android:background="#1C232B"
+        android:gravity="center"
+        android:orientation="vertical" >
+        
+        <ListView
+            android:id="@+id/bdc_list_view4"
+            android:layout_width="match_parent"
+            android:layout_height="634dp"
+            android:divider="@color/fragment_bg"
+            android:dividerHeight="10dp" >
+        </ListView>
+        
+    </LinearLayout>
+
+</LinearLayout>

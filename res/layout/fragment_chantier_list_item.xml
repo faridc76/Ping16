@@ -39,7 +39,11 @@
         android:text="TextView"
         android:textColor="@color/lightblue_text"
         android:textSize="24sp"
-        android:textStyle="bold" />
+        android:textStyle="bold" 
+        android:shadowColor="@color/text_shadow"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="2"/>
 
     <TextView
         android:id="@+id/textView1"
