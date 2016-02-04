@@ -15,11 +15,8 @@ import android.os.StrictMode;
 import fr.ineo.gestineo.dao.IAffaireDB;
 import fr.ineo.gestineo.dao.IUtilisateurDB;
 import fr.ineo.gestineo.dto.Affaire;
-<<<<<<< HEAD
 import info.androidhive.slidingmenu.AffaireItem;
-=======
 import fr.ineo.gestineo.dto.Message;
->>>>>>> branch 'master' of https://github.com/faridc76/Ping16.git
 
 public class AffaireDB implements IAffaireDB {
 	
@@ -27,19 +24,11 @@ public class AffaireDB implements IAffaireDB {
 	public final static String DOCUMENT = "http://faridchouakria.free.fr/documents/";
 	
 	@Override
-<<<<<<< HEAD
 	public List<AffaireItem> listeAffaire(int idUtilisateur) {
-=======
-	public ArrayList<Affaire> listeAffaire(int idUtilisateur) {
->>>>>>> branch 'master' of https://github.com/faridc76/Ping16.git
 		String result = "";
 		OutputStreamWriter writer = null;
 		BufferedReader reader = null;
-<<<<<<< HEAD
 		ArrayList<AffaireItem> list = null;
-=======
-		ArrayList<Affaire> list = null;
->>>>>>> branch 'master' of https://github.com/faridc76/Ping16.git
 		try {
 			StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
 			StrictMode.setThreadPolicy(policy); 
@@ -56,31 +45,16 @@ public class AffaireDB implements IAffaireDB {
 			while ((ligne = reader.readLine()) != null) {
 				result += ligne;
 			}
-<<<<<<< HEAD
-
+			
 			list = new ArrayList<AffaireItem>();
 			JSONObject obj = new JSONObject(result);
 			JSONArray jsonArray = obj.getJSONArray("affaire");
 			if (jsonArray != null) { 
 					int len = jsonArray.length();
 					for (int i=0;i<len;i++) { 
-						AffaireItem affaireItem = new AffaireItem(jsonArray.getJSONObject(i).getString("nom"), jsonArray.getJSONObject(i).getString("commenditaire"));
+						AffaireItem affaireItem = new AffaireItem(jsonArray.getJSONObject(i).getString("nom"), jsonArray.getJSONObject(i).getString("commenditaire"), jsonArray.getJSONObject(i).getInt("statut"));
 						list.add(affaireItem);
 				   } 
-=======
-			list = new ArrayList<Affaire>();
-			JSONObject object = new JSONObject(result);
-			JSONArray jsonArray = object.getJSONArray("affaire");
-			for (int i = 0; i < jsonArray.length(); i++) {
-				// On récupère un objet JSON du tableau
-                JSONObject obj = new JSONObject(jsonArray.getString(i));
-                // On fait le lien Affaire - Objet JSON
-                Affaire a = new Affaire();
-                a.setNom(obj.getString("nom"));
-                a.setCommenditaire(obj.getString("commenditaire"));
-                a.setStatut(obj.getInt("statut"));
-                list.add(a);
->>>>>>> branch 'master' of https://github.com/faridc76/Ping16.git
 			} 
 		} catch(Exception e) {
 			e.printStackTrace();

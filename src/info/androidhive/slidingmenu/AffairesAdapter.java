@@ -27,10 +27,12 @@ public class AffairesAdapter extends ArrayAdapter<AffaireItem> {
 		// Lookup view for data population
 		TextView tvCommanditaire = (TextView) convertView.findViewById(R.id.list_item_commanditaire);
 		TextView tvNom = (TextView) convertView.findViewById(R.id.list_item_text);
+		TextView tvStatut = (TextView) convertView.findViewById(R.id.list_item_statut);
 
 		// Populate the data into the template view using the data object
-		tvNom.setText(affaireItem.nom);
-		tvCommanditaire.setText(affaireItem.commanditaire);
+		tvStatut.setText(String.valueOf(affaireItem.getStatut()));
+		tvNom.setText(affaireItem.getNom());
+		tvCommanditaire.setText(affaireItem.getCommanditaire());
 		// Return the completed view to render on screen
 		return convertView;
 	}

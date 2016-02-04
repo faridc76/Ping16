@@ -38,11 +38,5 @@ public class ChantierActivity extends Activity {
 		String jsonUtilisateur = sharedPreferences.getString("utilisateur", "");
 		Utilisateur utilisateur = gson.fromJson(jsonUtilisateur, Utilisateur.class);
 		new ListeAffaireRequete().execute(utilisateur.getId(), listView, this.getApplicationContext());
-<<<<<<< HEAD
 	}
-=======
-        listView.setAdapter(arrayAdapter);
-	}
-	
->>>>>>> branch 'master' of https://github.com/faridc76/Ping16.git
 }
