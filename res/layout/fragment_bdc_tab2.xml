@@ -11,47 +11,11 @@
         android:orientation="vertical" >
 
         <EditText
-            android:id="@+id/editText1"
-            android:layout_width="1020dp"
-            android:layout_height="50dp"
-            android:layout_below="@+id/textView1"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="40dp"
-            android:ems="10"
-            android:hint="Nom"
-            android:inputType="textMultiLine"
-            android:textColor="#85A6D1" />
-
-        <EditText
-            android:id="@+id/EditText01"
-            android:layout_width="1020dp"
-            android:layout_height="50dp"
-            android:layout_alignLeft="@+id/editText1"
-            android:layout_below="@+id/editText1"
-            android:layout_marginTop="15dp"
-            android:ems="10"
-            android:hint="Adresse "
-            android:inputType="textMultiLine"
-            android:textColor="#85A6D1" />
-
-        <EditText
-            android:id="@+id/editText2"
-            android:layout_width="1020dp"
-            android:layout_height="50dp"
-            android:layout_alignLeft="@+id/EditText01"
-            android:layout_below="@+id/EditText01"
-            android:layout_marginTop="15dp"
-            android:ems="10"
-            android:hint="Numéro de téléphone"
-            android:inputType="number"
-            android:textColor="#85A6D1" />
-
-        <EditText
             android:id="@+id/EditText02"
             android:layout_width="1020dp"
             android:layout_height="50dp"
-            android:layout_alignLeft="@+id/editText2"
             android:layout_below="@+id/TextView01"
+            android:layout_centerHorizontal="true"
             android:layout_marginTop="40dp"
             android:ems="10"
             android:hint="Objet de la préstation "
@@ -103,28 +67,41 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="55dp"
             android:text="Informations demandeur"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#85A6D1" />
+            android:textColor="#85A6D1"
+            android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/TextView01"
-            android:layout_width="240dp"
-            android:layout_height="36dp"
-            android:layout_below="@+id/editText2"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="40dp"
-            android:text="Informations prestation"
+            android:id="@+id/TextView04"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/TextView03"
+            android:layout_below="@+id/TextView03"
+            android:layout_marginTop="15dp"
+            android:text="N° de téléphone        :"
             android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#FFFFFF" />
+
+        <EditText
+            android:id="@+id/EditText04"
+            android:layout_width="1020dp"
+            android:layout_height="50dp"
+            android:layout_alignLeft="@+id/EditText03"
+            android:layout_below="@+id/EditText03"
+            android:layout_marginTop="15dp"
+            android:ems="10"
+            android:hint="Durée (en jours)"
+            android:inputType="number"
             android:textColor="#85A6D1" />
 
         <Button
             android:id="@+id/button1"
             android:layout_width="220dp"
             android:layout_height="60dp"
-            android:layout_alignRight="@+id/EditText03"
-            android:layout_below="@+id/EditText03"
+            android:layout_alignRight="@+id/EditText04"
+            android:layout_below="@+id/EditText04"
             android:layout_marginTop="50dp"
             android:background="@drawable/buttonstyle"
             android:text="Envoyer"
@@ -132,6 +109,73 @@
             android:textSize="20sp"
             android:textStyle="bold" />
 
+        <TextView
+            android:id="@+id/TextView01"
+            android:layout_width="240dp"
+            android:layout_height="36dp"
+            android:layout_below="@+id/TextView04"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="55dp"
+            android:text="Informations prestation"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#85A6D1"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/TextView07"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/TextView01"
+            android:layout_alignLeft="@+id/TextView06"
+            android:layout_marginRight="15dp"
+            android:text="Réponse"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#85A6D1" />
+
+        <TextView
+            android:id="@+id/TextView02"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/EditText02"
+            android:layout_below="@+id/textView1"
+            android:layout_marginTop="55dp"
+            android:text="Nom                           :"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/TextView03"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/TextView02"
+            android:layout_below="@+id/TextView02"
+            android:layout_marginTop="15dp"
+            android:text="Adresse                     :"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/TextView05"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/TextView03"
+            android:layout_alignRight="@+id/TextView01"
+            android:layout_marginRight="15dp"
+            android:text="Réponse"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#85A6D1" />
+
+        <TextView
+            android:id="@+id/TextView06"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/TextView03"
+            android:layout_alignBottom="@+id/TextView03"
+            android:layout_alignLeft="@+id/TextView05"
+            android:layout_marginRight="15dp"
+            android:text="Réponse"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#85A6D1" />
     </RelativeLayout>
 
 </ScrollView>
