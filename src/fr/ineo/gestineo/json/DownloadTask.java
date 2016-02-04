@@ -83,6 +83,7 @@ public class DownloadTask extends AsyncTask<String, Integer, String> {
         OutputStream output = null;
         HttpURLConnection connection = null;
         try {
+        	System.out.println(DOCUMENT + sUrl[0] + "/" + sUrl[1]);
             URL url = new URL(DOCUMENT + sUrl[0] + "/" + sUrl[1]);
             connection = (HttpURLConnection) url.openConnection();
             connection.connect();
