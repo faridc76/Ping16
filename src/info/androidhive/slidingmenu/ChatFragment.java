@@ -118,6 +118,7 @@ public class ChatFragment extends Fragment {
  
         listMessages = new ArrayList<Message>();
         dao.listeMessages(affaire, listMessages, utilisateur);
+        Log.i("taille liste message", ""+listMessages.size());
         adapter = new MessagesListAdapter(getActivity(), listMessages);
         listViewMessages.setAdapter(adapter);
  
