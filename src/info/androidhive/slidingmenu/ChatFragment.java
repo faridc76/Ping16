@@ -12,10 +12,14 @@ import java.util.Locale;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,11 +28,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
+import fr.ineo.gestineo.dao.db.MessageDB;
+import fr.ineo.gestineo.dto.Affaire;
 import fr.ineo.gestineo.dto.Message;
+import fr.ineo.gestineo.dto.Utilisateur;
 import fr.ineo.gestineo.utils.Utils;
 import fr.ineo.gestineo.utils.WsConfig;
 
 import com.codebutler.android_websockets.WebSocketClient;
+import com.google.gson.Gson;
  
 public class ChatFragment extends Fragment {
  
@@ -47,8 +55,13 @@ public class ChatFragment extends Fragment {
  
     private Utils utils;
  
+    
+    MessageDB dao;
+    
     // Client name
     private String name = null;
+    private Utilisateur utilisateur;
+    private Affaire affaire;
  
     // JSON flags to identify the kind of JSON response
     private static final String TAG_SELF = "self", TAG_NEW = "new",
@@ -57,7 +70,9 @@ public class ChatFragment extends Fragment {
     // Background threading
     android.os.Handler handler = new android.os.Handler();
     
-    public ChatFragment(){}
+    public ChatFragment(){
+    	dao = new MessageDB();
+    }
     
     
     @SuppressWarnings("deprecation")
@@ -66,8 +81,16 @@ public class ChatFragment extends Fragment {
             Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
+        Gson gson = new Gson();
+        SharedPreferences preferences = this.getActivity().getSharedPreferences("mesPrefs", Context.MODE_PRIVATE);
+        
+        String jsonUtilisateur = preferences.getString("utilisateur", "");
+        String jsonAffaire = preferences.getString("affaire", "");
+
+        affaire = gson.fromJson(jsonAffaire, Affaire.class);
+        utilisateur = gson.fromJson(jsonUtilisateur, Utilisateur.class);
+        
         View rootView = inflater.inflate(R.layout.activity_chat, container, false);
- 
         btnSend = (Button) rootView.findViewById(R.id.btnSend);
         inputMsg = (EditText) rootView.findViewById(R.id.inputMsg);
         listViewMessages = (ListView) rootView.findViewById(R.id.list_view_messages);
@@ -77,7 +100,7 @@ public class ChatFragment extends Fragment {
         // Getting the person name from previous screen
         //Intent i = getActivity().getIntent();
         //name = i.getStringExtra("name");
-        name = "user";
+        name = "Moi";
         
         btnSend.setOnClickListener(new View.OnClickListener() {
  
@@ -94,8 +117,7 @@ public class ChatFragment extends Fragment {
         });
  
         listMessages = new ArrayList<Message>();
-        listMessages.add(new Message("Toi", "false", false));
-        listMessages.add(new Message("Moi", "true", true));
+        dao.listeMessages(affaire, listMessages, utilisateur);
         adapter = new MessagesListAdapter(getActivity(), listMessages);
         listViewMessages.setAdapter(adapter);
  
@@ -216,8 +238,10 @@ public class ChatFragment extends Fragment {
                     isSelf = false;
                 }
  
-                Message m = new Message(fromName, message, isSelf);
- 
+                Message m = new Message(utilisateur, message, isSelf, affaire);
+          
+                //On l'enregistre dans la base de données
+                dao.ajoutMessage(m);
                 // Appending the message to chat list
                 appendMessage(m);
  
@@ -253,7 +277,7 @@ public class ChatFragment extends Fragment {
             @Override
             public void run() {
                 listMessages.add(m);
- 
+                
                 adapter.notifyDataSetChanged();
  
                 // Playing device's notification
