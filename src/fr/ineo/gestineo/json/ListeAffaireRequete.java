@@ -1,5 +1,6 @@
 package fr.ineo.gestineo.json;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Context;
@@ -11,21 +12,23 @@ import android.widget.ListView;
 import android.widget.Toast;
 import fr.ineo.gestineo.dao.IAffaireDB;
 import fr.ineo.gestineo.dao.db.AffaireDB;
+import info.androidhive.slidingmenu.AffaireItem;
+import info.androidhive.slidingmenu.AffairesAdapter;
 
 /**
- * Classe permettant de rï¿½cupï¿½rer la liste des noms des affaires
+ * Classe permettant de récupérer la liste des noms des affaires
  * @author Ping16
  *
  */
 
-public class ListeAffaireRequete extends AsyncTask<Object, Void, List<String>> {
+public class ListeAffaireRequete extends AsyncTask<Object, Void, List<AffaireItem>> {
 	
 	private Context context = null;
 	private int idUtilisateur;
 	private ListView listView;
 	
 	@Override
-	protected List<String> doInBackground(Object... params) {
+	protected List<AffaireItem> doInBackground(Object... params) {
 		idUtilisateur = (Integer) params[0];
 		listView = (ListView) params[1];
 		context = (Context) params[2];
@@ -35,14 +38,16 @@ public class ListeAffaireRequete extends AsyncTask<Object, Void, List<String>> {
 	}
 
 	@Override
-	protected void onPostExecute(final List<String> result) {
+	protected void onPostExecute(final List<AffaireItem> result) {
 		if(context != null && listView != null) {
 			if(result != null) {
 				System.out.println(result);
-				//ArrayAdapter<String> adp1 = new ArrayAdapter<String>(context.getApplicationContext(), R.id.list_item_text, result);
-				//listView.setAdapter(adp1);
-				ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(context.getApplicationContext(), info.androidhive.gestineo.R.layout.fragment_chantier_list_item, info.androidhive.gestineo.R.id.list_item_text, result);
-		        listView.setAdapter(arrayAdapter);
+				ArrayList<AffaireItem> list = (ArrayList<AffaireItem>) result;
+		        
+		        AffairesAdapter adapter = new AffairesAdapter(context, list);
+		        listView.setAdapter(adapter);
+				/*ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(context.getApplicationContext(), info.androidhive.gestineo.R.layout.fragment_chantier_list_item, info.androidhive.gestineo.R.id.list_item_text, result);
+		        listView.setAdapter(arrayAdapter);*/
 		        
 				listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
@@ -56,7 +61,7 @@ public class ListeAffaireRequete extends AsyncTask<Object, Void, List<String>> {
                 });
 			}
 			else {
-				Toast.makeText(context, String.valueOf("Impossible de rÃ©cupÃ©rer la liste des affaires"), Toast.LENGTH_SHORT).show();
+				Toast.makeText(context, String.valueOf("Impossible de récupérer la liste des affaires"), Toast.LENGTH_SHORT).show();
 			}
 		}
 	}

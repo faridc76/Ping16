@@ -15,6 +15,7 @@ import android.os.StrictMode;
 import fr.ineo.gestineo.dao.IAffaireDB;
 import fr.ineo.gestineo.dao.IUtilisateurDB;
 import fr.ineo.gestineo.dto.Affaire;
+import info.androidhive.slidingmenu.AffaireItem;
 
 public class AffaireDB implements IAffaireDB {
 	
@@ -22,11 +23,11 @@ public class AffaireDB implements IAffaireDB {
 	public final static String DOCUMENT = "http://faridchouakria.free.fr/documents/";
 	
 	@Override
-	public List<String> listeAffaire(int idUtilisateur) {
+	public List<AffaireItem> listeAffaire(int idUtilisateur) {
 		String result = "";
 		OutputStreamWriter writer = null;
 		BufferedReader reader = null;
-		ArrayList<String> list = null;
+		ArrayList<AffaireItem> list = null;
 		try {
 			StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
 			StrictMode.setThreadPolicy(policy); 
@@ -44,13 +45,14 @@ public class AffaireDB implements IAffaireDB {
 				result += ligne;
 			}
 
-			list = new ArrayList<String>();
+			list = new ArrayList<AffaireItem>();
 			JSONObject obj = new JSONObject(result);
 			JSONArray jsonArray = obj.getJSONArray("affaire");
 			if (jsonArray != null) { 
 					int len = jsonArray.length();
 					for (int i=0;i<len;i++) { 
-						list.add(jsonArray.get(i).toString());
+						AffaireItem affaireItem = new AffaireItem(jsonArray.getJSONObject(i).getString("nom"), jsonArray.getJSONObject(i).getString("commenditaire"));
+						list.add(affaireItem);
 				   } 
 			} 
 		} catch(Exception e) {
