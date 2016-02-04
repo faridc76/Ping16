@@ -128,5 +128,17 @@ public class Affaire {
 				+ ", chef=" + chef + ", documents=" + documents + "]";
 	}
 
+	public String leStatut() {
+		if (statut == 0) {
+			return "Non démarré";
+		} else if (statut == 1) {
+			return "En cours";
+		} else if (statut == 2) {
+			return "Terminé";
+		} else {
+			return "Indeterminé";
+		}
+	}
+
 	
 }

@@ -19,14 +19,14 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/list_item_date"
+        android:id="@+id/list_item_statut"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textView1"
         android:layout_alignParentTop="true"
         android:layout_marginBottom="5dp"
         android:layout_marginTop="5dp"
-        android:text="date"
+        android:text="statut"
         android:textColor="#54759D" />
 
     <TextView
@@ -34,7 +34,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/list_item_date"
+        android:layout_alignTop="@+id/list_item_statut"
         android:layout_margin="20dp"
         android:text="TextView"
         android:textColor="@color/lightblue_text"
@@ -50,7 +50,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/list_item_text"
-        android:layout_below="@+id/list_item_date"
+        android:layout_below="@+id/list_item_statut"
         android:layout_marginTop="36dp"
         android:text="de"
         android:textColor="#333A43" />
