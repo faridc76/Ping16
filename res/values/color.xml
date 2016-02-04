@@ -11,7 +11,7 @@
     <color name="golden_text">#BDB388</color>
     <color name="lightblue_text">#85A6D1</color>
     <color name="dimwhite_text">#FFFFFC</color>
-    <color name="text_shadow">#7F0000</color>
+    <color name="text_shadow">#000000</color>
     <color name="text_shadow_white">#FFFFFF</color>
 
     <!-- WEB CHAT -->
