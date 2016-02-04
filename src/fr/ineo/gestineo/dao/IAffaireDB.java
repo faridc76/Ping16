@@ -7,7 +7,7 @@ import fr.ineo.gestineo.dto.Affaire;
 
 public interface IAffaireDB {
 
-	public List<String> listeAffaire(int idUtilisateur);
+	public List<Affaire> listeAffaire(int idUtilisateur);
 
 	public Affaire recupAffaire(String affaire);
 	

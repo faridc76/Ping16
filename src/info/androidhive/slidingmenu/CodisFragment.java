@@ -3,11 +3,7 @@ import android.support.v4.app.Fragment;
 
 import java.io.File;
 
-import com.aspose.cells.ImageFormat;
-import com.aspose.cells.ImageOrPrintOptions;
-import com.aspose.cells.SheetRender;
-import com.aspose.cells.Workbook;
-import com.aspose.cells.Worksheet;
+
 import com.google.gson.Gson;
 
 import android.app.ProgressDialog;

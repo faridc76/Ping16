@@ -201,7 +201,7 @@
                 android:id="@+id/textView14"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Chef:"
+                android:text="Chef de chantier:"
                 android:textColor="@color/golden_text"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
