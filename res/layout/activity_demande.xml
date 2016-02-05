@@ -10,12 +10,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="60dp"
         android:shadowColor="@color/text_shadow"
         android:shadowDx="1"
         android:shadowDy="1"
         android:shadowRadius="2"
-        android:text="Bon de Commande"
+        android:text="Demande de personnel"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="@color/lightblue_text"
         android:textSize="50dp"
@@ -37,16 +37,16 @@
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Marque:"
+                android:text="Demandeur:"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@color/golden_text" />
 
             <TextView
-                android:id="@+id/marqueTV"
+                android:id="@+id/demandeurTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="70dp"
-                android:text="Large Text"
+                android:text="Vincent Marion"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@color/dimwhite_text" />
 
@@ -64,12 +64,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingRight="20dp"
-                android:text="Référence:"
+                android:text="Objet:"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@color/golden_text" />
 
             <TextView
-                android:id="@+id/refTV"
+                android:id="@+id/objetTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="70dp"
@@ -89,12 +89,12 @@
                 android:id="@+id/textView6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Désignation:"
+                android:text="Tâche:"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@color/golden_text" />
 
             <TextView
-                android:id="@+id/designationTV"
+                android:id="@+id/tacheTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="70dp"
@@ -114,37 +114,12 @@
                 android:id="@+id/textView8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Quantité:"
+                android:text="Durée:"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@color/golden_text" />
 
             <TextView
-                android:id="@+id/qtyTV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="70dp"
-                android:text="Large Text"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@color/dimwhite_text" />
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/tableRow5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:gravity="center" >
-
-            <TextView
-                android:id="@+id/textView10"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Date de livraison:"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="@color/golden_text" />
-
-            <TextView
-                android:id="@+id/dateTV"
+                android:id="@+id/dureeTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="70dp"
@@ -161,7 +136,7 @@
             android:gravity="center" >
 
             <Button
-                android:id="@+id/accepterbtn"
+                android:id="@+id/Button01"
                 android:layout_width="150dp"
                 android:layout_height="40dp"
                 android:layout_marginRight="10dp"
@@ -173,7 +148,7 @@
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/refuserbtn"
+                android:id="@+id/returnbtn"
                 android:layout_width="150dp"
                 android:layout_height="40dp"
                 android:layout_marginLeft="10dp"

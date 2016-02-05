@@ -11,6 +11,7 @@ import android.widget.Toast;
 import fr.ineo.gestineo.dao.IDemandeDePersonnelDB;
 import fr.ineo.gestineo.dao.db.DemandeDePersonnelDB;
 import fr.ineo.gestineo.dto.DemandeDePersonnel;
+import info.androidhive.slidingmenu.DemandeActivity;
 import info.androidhive.slidingmenu.MainActivity;
 
 public class InfoDemandeRequete extends AsyncTask<Object, Void, DemandeDePersonnel> {
@@ -38,7 +39,7 @@ public class InfoDemandeRequete extends AsyncTask<Object, Void, DemandeDePersonn
 				editor.putString("demande", gson.toJson(result));
 				editor.commit();
 
-				Intent intent = new Intent(context, MainActivity.class);
+				Intent intent = new Intent(context, DemandeActivity.class);
 				intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
 				context.startActivity(intent);

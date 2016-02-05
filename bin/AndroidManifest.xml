@@ -55,6 +55,11 @@
             android:screenOrientation="landscape"
             android:theme="@android:style/Theme.Light.NoTitleBar" >
         </activity>
+        <activity 
+            android:name="info.androidhive.slidingmenu.DemandeActivity"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.Light.NoTitleBar" >
+        </activity>
         <activity
             android:name="info.androidhive.slidingmenu.RegisterActivity"
             android:label="@string/title_activity_activity_register"

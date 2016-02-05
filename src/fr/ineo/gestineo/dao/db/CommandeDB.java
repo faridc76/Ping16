@@ -128,7 +128,7 @@ public class CommandeDB implements ICommandeDB {
 			StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
 			StrictMode.setThreadPolicy(policy);
 
-			URL url = new URL(DOMAINE + "recup_info_affaire.php");
+			URL url = new URL(DOMAINE + "recup_info_commande.php");
 			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 			connection.setDoOutput(true); // Pour pouvoir envoyer des donn�es
 			connection.setRequestMethod("POST");
