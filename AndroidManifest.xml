@@ -45,7 +45,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="info.androidhive.slidingmenu.ChantierActivity" >
+        <activity 
+            android:name="info.androidhive.slidingmenu.ChantierActivity"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.Light.NoTitleBar" >
         </activity>
         <activity
             android:name="info.androidhive.slidingmenu.RegisterActivity"
