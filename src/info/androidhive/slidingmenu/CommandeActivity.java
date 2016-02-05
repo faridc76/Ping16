@@ -38,7 +38,7 @@ public class CommandeActivity extends Activity {
         
         //Budget
         TextView budget = (TextView) this.findViewById(R.id.designationTV);
-        budget.setText(commande.getDesignation()+"€");
+        budget.setText(commande.getDesignation());
         
         //Statut
         TextView statut = (TextView) this.findViewById(R.id.qtyTV);
