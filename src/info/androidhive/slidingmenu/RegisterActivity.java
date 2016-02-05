@@ -34,8 +34,8 @@ public class RegisterActivity extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
-	
-	public void openLogin(View view){
+
+	public void openLogin(View view) {
 		Intent intent = new Intent(this, LoginActivity.class);
 		startActivity(intent);
 	}

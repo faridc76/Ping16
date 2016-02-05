@@ -12,18 +12,18 @@ import android.widget.ListView;
 import android.widget.Toast;
 import fr.ineo.gestineo.dao.IAffaireDB;
 import fr.ineo.gestineo.dao.db.AffaireDB;
-import info.androidhive.slidingmenu.AffaireItem;
-import info.androidhive.slidingmenu.AffairesAdapter;
+import fr.ineo.gestineo.dto.AffaireItem;
+import info.androidhive.slidingmenu.adapter.AffairesAdapter;
 
 /**
- * Classe permettant de récupérer la liste des noms des affaires
+ * Classe permettant de rï¿½cupï¿½rer la liste des noms des affaires
  * 
  * @author Ping16
  *
  */
 
 public class ListeAffaireRequete extends AsyncTask<Object, Void, List<AffaireItem>> {
-	
+
 	private Context context = null;
 	private int idUtilisateur;
 	private ListView listView;
@@ -40,14 +40,14 @@ public class ListeAffaireRequete extends AsyncTask<Object, Void, List<AffaireIte
 
 	@Override
 	protected void onPostExecute(final List<AffaireItem> result) {
-		if(context != null && listView != null) {
-			if(result != null) {
+		if (context != null && listView != null) {
+			if (result != null) {
 				System.out.println(result);
 				final ArrayList<AffaireItem> list = (ArrayList<AffaireItem>) result;
-		        
-		        AffairesAdapter adapter = new AffairesAdapter(context, list);
-		        listView.setAdapter(adapter);
-		        
+
+				AffairesAdapter adapter = new AffairesAdapter(context, list);
+				listView.setAdapter(adapter);
+
 				listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
 					@Override
@@ -56,11 +56,11 @@ public class ListeAffaireRequete extends AsyncTask<Object, Void, List<AffaireIte
 						System.out.println("position : " + position);
 						Log.e("affaire", list.get(position).getNom());
 						new InfoAffaireRequete().execute(list.get(position).getNom(), context);
-					}                    
-                });
-			}
-			else {
-				Toast.makeText(context, String.valueOf("Impossible de récupérer la liste des affaires"), Toast.LENGTH_SHORT).show();
+					}
+				});
+			} else {
+				Toast.makeText(context, String.valueOf("Impossible de rÃ©cupÃ©rer la liste des affaires"),
+						Toast.LENGTH_SHORT).show();
 			}
 		}
 	}

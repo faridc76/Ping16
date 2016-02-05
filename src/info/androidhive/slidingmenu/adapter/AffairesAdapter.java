@@ -1,4 +1,4 @@
-package info.androidhive.slidingmenu;
+package info.androidhive.slidingmenu.adapter;
 
 import java.util.ArrayList;
 
@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+import fr.ineo.gestineo.dto.AffaireItem;
 import info.androidhive.gestineo.R;
 
 public class AffairesAdapter extends ArrayAdapter<AffaireItem> {
@@ -22,7 +23,8 @@ public class AffairesAdapter extends ArrayAdapter<AffaireItem> {
 		AffaireItem affaireItem = getItem(position);
 		// Check if an existing view is being reused, otherwise inflate the view
 		if (convertView == null) {
-			convertView = LayoutInflater.from(getContext()).inflate(R.layout.fragment_chantier_list_item, parent, false);
+			convertView = LayoutInflater.from(getContext()).inflate(R.layout.fragment_chantier_list_item, parent,
+					false);
 		}
 		// Lookup view for data population
 		TextView tvCommanditaire = (TextView) convertView.findViewById(R.id.list_item_commanditaire);

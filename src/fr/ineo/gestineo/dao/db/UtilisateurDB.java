@@ -14,15 +14,14 @@ import fr.ineo.gestineo.dto.Utilisateur;
 
 public class UtilisateurDB implements IUtilisateurDB {
 
-	
 	public static String MY_PREFS_NAME = "Pref_pour_gestineo";
 	public final static String CHEF_DE_CHANTIER = "Chef de chantier";
 	public final static String CONDUCTEUR_DE_TRAVAUX = "Conducteur de travaux";
 	public final static String RESPONSABLE_DAFFAIRES = "Responsable d'affaires";
 	public final static String GOOD_RESULT = "true";
-	
+
 	public final static String DOMAINE = "http://faridchouakria.free.fr/webservices/";
-	
+
 	public boolean AjoutPersonne(Utilisateur u, String password) {
 		String result = "";
 		int id = 0;
@@ -30,13 +29,15 @@ public class UtilisateurDB implements IUtilisateurDB {
 		BufferedReader reader = null;
 		try {
 			StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-			StrictMode.setThreadPolicy(policy); 
+			StrictMode.setThreadPolicy(policy);
 			URL url = new URL(DOMAINE + "ajoutUtilisateur.php");
 			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 			connection.setDoOutput(true); // Pour pouvoir envoyer des donn�es
-			connection.setRequestMethod("POST"); 
+			connection.setRequestMethod("POST");
 			writer = new OutputStreamWriter(connection.getOutputStream());
-			writer.write("matricule=" + u.getMatricule() + "&nom=" + u.getNom() + "&prenom=" + u.getPrenom() + "&numero=" + u.getNumero() + "&bureau=" + u.getBureau() + "&mail=" + u.getMail() + "&password=" + password);
+			writer.write("matricule=" + u.getMatricule() + "&nom=" + u.getNom() + "&prenom=" + u.getPrenom()
+					+ "&numero=" + u.getNumero() + "&bureau=" + u.getBureau() + "&mail=" + u.getMail() + "&password="
+					+ password);
 			writer.flush();
 			reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
 			String ligne;
@@ -45,11 +46,17 @@ public class UtilisateurDB implements IUtilisateurDB {
 			}
 			id = Integer.parseInt(result);
 			u.setId(id);
-		} catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			try{writer.close();}catch(Exception e){}
-			try{reader.close();}catch(Exception e){}
+			try {
+				writer.close();
+			} catch (Exception e) {
+			}
+			try {
+				reader.close();
+			} catch (Exception e) {
+			}
 		}
 		return (id != 0);
 	}
@@ -62,11 +69,11 @@ public class UtilisateurDB implements IUtilisateurDB {
 		BufferedReader reader = null;
 		try {
 			StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-			StrictMode.setThreadPolicy(policy); 
+			StrictMode.setThreadPolicy(policy);
 			URL url = new URL(DOMAINE + "recup_utilisateur.php");
 			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 			connection.setDoOutput(true); // Pour pouvoir envoyer des donn�es
-			connection.setRequestMethod("POST"); 
+			connection.setRequestMethod("POST");
 			writer = new OutputStreamWriter(connection.getOutputStream());
 			writer.write("matricule=" + matricule + "&password=" + password);
 			writer.flush();
@@ -76,7 +83,7 @@ public class UtilisateurDB implements IUtilisateurDB {
 				result += ligne;
 			}
 			JSONObject obj = new JSONObject(result);
-			if(obj.getBoolean("result")) {
+			if (obj.getBoolean("result")) {
 				utilisateur = new Utilisateur();
 				utilisateur.setId(obj.getInt("id"));
 				utilisateur.setMatricule(obj.getString("matricule"));
@@ -90,8 +97,14 @@ public class UtilisateurDB implements IUtilisateurDB {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			try{writer.close();}catch(Exception e){}
-			try{reader.close();}catch(Exception e){}
+			try {
+				writer.close();
+			} catch (Exception e) {
+			}
+			try {
+				reader.close();
+			} catch (Exception e) {
+			}
 		}
 		return utilisateur;
 	}
@@ -104,8 +117,8 @@ public class UtilisateurDB implements IUtilisateurDB {
 		BufferedReader reader = null;
 		try {
 			StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-			StrictMode.setThreadPolicy(policy); 
-			
+			StrictMode.setThreadPolicy(policy);
+
 			URL url = new URL(DOMAINE + "is_free_matricule.php");
 			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 			connection.setDoOutput(true); // Pour pouvoir envoyer des donn�es
@@ -120,11 +133,17 @@ public class UtilisateurDB implements IUtilisateurDB {
 			}
 			JSONObject obj = new JSONObject(result);
 			value = obj.getBoolean("free");
-		} catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			try{writer.close();}catch(Exception e){}
-			try{reader.close();}catch(Exception e){}
+			try {
+				writer.close();
+			} catch (Exception e) {
+			}
+			try {
+				reader.close();
+			} catch (Exception e) {
+			}
 		}
 		return value;
 	}
@@ -143,11 +162,11 @@ public class UtilisateurDB implements IUtilisateurDB {
 		BufferedReader reader = null;
 		try {
 			StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-			StrictMode.setThreadPolicy(policy); 
+			StrictMode.setThreadPolicy(policy);
 			URL url = new URL(DOMAINE + "recup_utilisateur_id.php");
 			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 			connection.setDoOutput(true); // Pour pouvoir envoyer des donn�es
-			connection.setRequestMethod("POST"); 
+			connection.setRequestMethod("POST");
 			writer = new OutputStreamWriter(connection.getOutputStream());
 			writer.write("id=" + id);
 			writer.flush();
@@ -157,7 +176,7 @@ public class UtilisateurDB implements IUtilisateurDB {
 				result += ligne;
 			}
 			JSONObject obj = new JSONObject(result);
-			if(obj.getBoolean("result")) {
+			if (obj.getBoolean("result")) {
 				utilisateur = new Utilisateur();
 				utilisateur.setId(obj.getInt("id"));
 				utilisateur.setMatricule(obj.getString("matricule"));
@@ -171,8 +190,14 @@ public class UtilisateurDB implements IUtilisateurDB {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			try{writer.close();}catch(Exception e){}
-			try{reader.close();}catch(Exception e){}
+			try {
+				writer.close();
+			} catch (Exception e) {
+			}
+			try {
+				reader.close();
+			} catch (Exception e) {
+			}
 		}
 		return utilisateur;
 	}

@@ -4,32 +4,33 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Affaire {
-	
+
 	private int id;
-	
+
 	private String nom;
-	
+
 	private String lieu;
-	
+
 	private String budget;
-	
+
 	private String commenditaire;
-	
+
 	private int statut;
-	
+
 	private Utilisateur responsable;
-	
+
 	private Utilisateur conducteur;
-	
+
 	private Utilisateur chef;
-	
+
 	private List<String> documents = new ArrayList<String>();
-	
-	public Affaire(){
+
+	public Affaire() {
 		id = 0;
 	}
-	
-	public Affaire(int id, String nom, String lieu, String budget, String commenditaire, int statut, Utilisateur responsable, Utilisateur conducteur, Utilisateur chef) {
+
+	public Affaire(int id, String nom, String lieu, String budget, String commenditaire, int statut,
+			Utilisateur responsable, Utilisateur conducteur, Utilisateur chef) {
 		this.id = id;
 		this.nom = nom;
 		this.lieu = lieu;
@@ -128,17 +129,4 @@ public class Affaire {
 				+ ", chef=" + chef + ", documents=" + documents + "]";
 	}
 
-	public String leStatut() {
-		if (statut == 0) {
-			return "Non démarré";
-		} else if (statut == 1) {
-			return "En cours";
-		} else if (statut == 2) {
-			return "Terminé";
-		} else {
-			return "Indeterminé";
-		}
-	}
-
-	
 }

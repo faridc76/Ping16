@@ -71,11 +71,11 @@ public class Utilisateur {
 	private String bureau;
 	private String mail;
 	private int fonction;
-	
-	public Utilisateur () {
+
+	public Utilisateur() {
 		id = 0;
 	};
-	
+
 	public int getId() {
 		return id;
 	}

@@ -36,19 +36,18 @@ public class LoginActivity extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
-	public void openMainMenu(View view){
-		
+
+	public void openMainMenu(View view) {
+
 		EditText matricule = (EditText) findViewById(R.id.ETMatricule);
 		EditText password = (EditText) findViewById(R.id.ETPassword);
-		
-		// Pour tester le matricule
-		new CheckLoginRequete().execute(matricule.getText().toString(), password.getText().toString(), this.getApplicationContext());
-		// Il faudra mettre le checkLogin � la place !
-		
-		//Intent intent = new Intent(this, MainActivity.class);
-		//startActivity(intent);
+
+		// Pour tester le login et le pass
+		new CheckLoginRequete().execute(matricule.getText().toString(), password.getText().toString(),
+				this.getApplicationContext());
 	}
-	public void openRegister(View view){
+
+	public void openRegister(View view) {
 		Intent intent = new Intent(this, RegisterActivity.class);
 		startActivity(intent);
 	}

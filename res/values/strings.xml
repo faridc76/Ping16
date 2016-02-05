@@ -49,6 +49,6 @@
     <string name="enter_name">Entrer votre nom</string>
     <string name="btn_join">JOINDRE</string>
     <string name="btn_send">Envoyer</string>
+    <string name="title_activity_pdf">PDFActivity</string>
 
-   
 </resources>

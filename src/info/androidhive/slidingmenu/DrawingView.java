@@ -140,7 +140,7 @@ public class DrawingView extends View {
 	// start new drawing
 	public void startNew() {
 		drawCanvas.drawColor(0, PorterDuff.Mode.CLEAR);
-		//On se remet sur le mode dessins
+		// On se remet sur le mode dessins
 		setErase(false);
 		invalidate();
 	}
