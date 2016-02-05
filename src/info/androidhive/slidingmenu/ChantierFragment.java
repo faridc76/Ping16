@@ -55,7 +55,7 @@ public class ChantierFragment extends Fragment {
         
         //Budget
         TextView budget = (TextView) rootView.findViewById(R.id.budgetTV);
-        budget.setText(affaire.getBudget());
+        budget.setText(affaire.getBudget()+"€");
         
         //Statut
         TextView statut = (TextView) rootView.findViewById(R.id.statusTV);

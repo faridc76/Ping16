@@ -54,6 +54,6 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/ETPassword"
         android:layout_below="@+id/ETPassword"
-        android:layout_marginTop="41dp" />
+        android:layout_marginTop="38dp" />
     
 </RelativeLayout>
