@@ -116,7 +116,7 @@
             android:layout_marginTop="15dp"
             android:text="N° Téléphone                :"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#FFFFFF" />
+            android:textColor="@color/golden_text" />
 
         <TextView
             android:id="@+id/TextView05"
@@ -127,7 +127,7 @@
             android:layout_marginTop="15dp"
             android:text="Personne à contacter  :"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#FFFFFF" />
+            android:textColor="@color/golden_text" />
 
         <TextView
             android:id="@+id/TextView06"
@@ -138,7 +138,7 @@
             android:layout_marginTop="15dp"
             android:text="Adresse de livraison    :"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#FFFFFF" />
+            android:textColor="@color/golden_text" />
 
         <EditText
             android:id="@+id/EditText04"
@@ -162,7 +162,7 @@
             android:layout_marginTop="55dp"
             android:text="N° de chantier              :"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#FFFFFF" />
+            android:textColor="@color/golden_text" />
 
         <TextView
             android:id="@+id/TextView03"
@@ -173,7 +173,7 @@
             android:layout_marginTop="15dp"
             android:text="Intitulé chantier            :"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#FFFFFF" />
+            android:textColor="@color/golden_text" />
 
         <TextView
             android:id="@+id/TextView07"
@@ -185,7 +185,7 @@
             android:layout_toRightOf="@+id/TextView02"
             android:text="Réponse"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#85A6D1" />
+            android:textColor="@color/dimwhite_text" />
 
         <TextView
             android:id="@+id/TextView08"
@@ -196,7 +196,7 @@
             android:layout_marginTop="15dp"
             android:text="Réponse"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#85A6D1" />
+            android:textColor="@color/dimwhite_text" />
 
         <TextView
             android:id="@+id/TextView09"
@@ -207,7 +207,7 @@
             android:layout_marginTop="15dp"
             android:text="Réponse"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#85A6D1" />
+            android:textColor="@color/dimwhite_text" />
 
         <TextView
             android:id="@+id/TextView10"
@@ -218,7 +218,7 @@
             android:layout_marginTop="15dp"
             android:text="Réponse"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#85A6D1" />
+            android:textColor="@color/dimwhite_text" />
 
         <TextView
             android:id="@+id/TextView11"
@@ -229,7 +229,7 @@
             android:layout_marginTop="40dp"
             android:text="Réponse"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#85A6D1" />
+            android:textColor="@color/dimwhite_text" />
     </RelativeLayout>
 
 </ScrollView>

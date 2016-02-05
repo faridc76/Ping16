@@ -82,7 +82,7 @@
             android:layout_marginTop="15dp"
             android:text="N° de téléphone        :"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#FFFFFF" />
+            android:textColor="@color/golden_text" />
 
         <EditText
             android:id="@+id/EditText04"
@@ -130,7 +130,7 @@
             android:layout_marginRight="15dp"
             android:text="Réponse"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#85A6D1" />
+            android:textColor="@color/dimwhite_text" />
 
         <TextView
             android:id="@+id/TextView02"
@@ -141,7 +141,7 @@
             android:layout_marginTop="55dp"
             android:text="Nom                           :"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#FFFFFF" />
+            android:textColor="@color/golden_text" />
 
         <TextView
             android:id="@+id/TextView03"
@@ -152,7 +152,7 @@
             android:layout_marginTop="15dp"
             android:text="Adresse                     :"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#FFFFFF" />
+            android:textColor="@color/golden_text" />
 
         <TextView
             android:id="@+id/TextView05"
@@ -163,7 +163,7 @@
             android:layout_marginRight="15dp"
             android:text="Réponse"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#85A6D1" />
+            android:textColor="@color/dimwhite_text" />
 
         <TextView
             android:id="@+id/TextView06"
@@ -175,7 +175,7 @@
             android:layout_marginRight="15dp"
             android:text="Réponse"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#85A6D1" />
+            android:textColor="@color/dimwhite_text" />
     </RelativeLayout>
 
 </ScrollView>
