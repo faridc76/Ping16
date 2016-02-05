@@ -31,6 +31,8 @@ public class DemandeActivity extends Activity {
 		Gson gson = new Gson();
 		String jsonDemande = sharedPreferences.getString("demande", "");
 		DemandeDePersonnel demande = gson.fromJson(jsonDemande, DemandeDePersonnel.class);
+		String jsonUtilisateur = sharedPreferences.getString("utilisateur", "");
+		Utilisateur utilisateur = gson.fromJson(jsonUtilisateur, Utilisateur.class);
 		
 		//Commenditaire
         TextView commenditaire = (TextView) this.findViewById(R.id.demandeurTV);
@@ -48,7 +50,7 @@ public class DemandeActivity extends Activity {
         TextView statut = (TextView) this.findViewById(R.id.dureeTV);
         //statut.setText(demande.getDuree());
         
-        if(false){ //changer condition pour chef de chantier
+        if(utilisateur.getFonction() == 0){ //changer condition pour chef de chantier
         	Button abtn = (Button) this.findViewById(R.id.accepterbtn);
         	Button rbtn = (Button) this.findViewById(R.id.refuserbtn);
         	abtn.setText("Retour");

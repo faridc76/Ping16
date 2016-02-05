@@ -31,6 +31,8 @@ public class CommandeActivity extends Activity{
 		Gson gson = new Gson();
 		String jsonCommande = sharedPreferences.getString("commande", "");
 		Commande commande = gson.fromJson(jsonCommande, Commande.class);
+		String jsonUtilisateur = sharedPreferences.getString("utilisateur", "");
+		Utilisateur utilisateur = gson.fromJson(jsonUtilisateur, Utilisateur.class);
 		
 		//Commenditaire
         TextView commenditaire = (TextView) this.findViewById(R.id.marqueTV);
@@ -52,7 +54,7 @@ public class CommandeActivity extends Activity{
         TextView resp = (TextView) this.findViewById(R.id.dateTV);
         resp.setText(commande.getDate());
           
-        if(false){ //changer condition pour chef de chantier
+        if(utilisateur.getFonction() == 0){ //changer condition pour chef de chantier
         	Button abtn = (Button) this.findViewById(R.id.accepterbtn);
         	Button rbtn = (Button) this.findViewById(R.id.refuserbtn);
         	abtn.setText("Retour");
