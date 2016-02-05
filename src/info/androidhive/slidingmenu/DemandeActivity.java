@@ -18,10 +18,10 @@ import com.google.gson.Gson;
 
 public class DemandeActivity extends Activity {
 
-	
+
 	public DemandeActivity() {
 	}
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -33,33 +33,33 @@ public class DemandeActivity extends Activity {
 		DemandeDePersonnel demande = gson.fromJson(jsonDemande, DemandeDePersonnel.class);
 		String jsonUtilisateur = sharedPreferences.getString("utilisateur", "");
 		Utilisateur utilisateur = gson.fromJson(jsonUtilisateur, Utilisateur.class);
-		
-		//Commenditaire
-        TextView commenditaire = (TextView) this.findViewById(R.id.demandeurTV);
-        //commenditaire.setText(demande.getUtilisateur().getNom());
-        
-        //Lieu
-        TextView lieu = (TextView) this.findViewById(R.id.objetTV);
-       // lieu.setText(demande.getObjet());
-        
-        //Tache
-        TextView budget = (TextView) this.findViewById(R.id.tacheTV);
-        //budget.setText(demande.getTache());
-        
-        //Duree
-        TextView statut = (TextView) this.findViewById(R.id.dureeTV);
-        //statut.setText(demande.getDuree());
-        
-        if(utilisateur.getFonction() == 0){ //changer condition pour chef de chantier
-        	Button abtn = (Button) this.findViewById(R.id.accepterbtn);
-        	Button rbtn = (Button) this.findViewById(R.id.refuserbtn);
-        	abtn.setText("Retour");
-        	rbtn.setVisibility(View.GONE);
-        }
+
+		//demandeur
+		TextView demandeur = (TextView) this.findViewById(R.id.demandeurTV);
+		//commenditaire.setText(demande.getUtilisateur().getNom());
+
+		//objet
+		TextView objet = (TextView) this.findViewById(R.id.objetTV);
+		// lieu.setText(demande.getObjet());
+
+		//Tache
+		TextView tache = (TextView) this.findViewById(R.id.tacheTV);
+		//budget.setText(demande.getTache());
+
+		//Duree
+		TextView duree = (TextView) this.findViewById(R.id.dureeTV);
+		//statut.setText(demande.getDuree());
+
+		if(utilisateur.getFonction() == 0){ //changer condition pour chef de chantier
+			Button abtn = (Button) this.findViewById(R.id.accepterbtn);
+			Button rbtn = (Button) this.findViewById(R.id.refuserbtn);
+			abtn.setText("Retour");
+			rbtn.setVisibility(View.GONE);
+		}
 	}
 	public void openMainMenu(View v){
 		Intent intent = new Intent(this, MainActivity.class);
 		intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 		this.startActivity(intent);
-    }
+	}
 }
