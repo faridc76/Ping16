@@ -224,7 +224,12 @@ public class MainActivity extends FragmentActivity {
 		mTitle = title;
 		getActionBar().setTitle(Html.fromHtml(titleText));
 	}
-
+	
+	public void openFragment(Fragment fragment){
+		android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
+		fragmentManager.beginTransaction().replace(R.id.frame_container, fragment).addToBackStack("tag").commit();
+	}
+	
 	/**
 	 * When using the ActionBarDrawerToggle, you must call it during
 	 * onPostCreate() and onConfigurationChanged()...
@@ -245,3 +250,5 @@ public class MainActivity extends FragmentActivity {
 	}
 
 }
+
+
