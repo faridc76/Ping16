@@ -52,6 +52,12 @@ public class CommandeActivity extends Activity{
         TextView resp = (TextView) this.findViewById(R.id.dateTV);
         resp.setText(commande.getDate());
           
+        if(false){ //changer condition pour chef de chantier
+        	Button abtn = (Button) this.findViewById(R.id.accepterbtn);
+        	Button rbtn = (Button) this.findViewById(R.id.refuserbtn);
+        	abtn.setText("Retour");
+        	rbtn.setVisibility(View.GONE);
+        }
 	}
 	
 	public void openMainMenu(View v){

@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
@@ -47,6 +48,12 @@ public class DemandeActivity extends Activity {
         TextView statut = (TextView) this.findViewById(R.id.dureeTV);
         //statut.setText(demande.getDuree());
         
+        if(false){ //changer condition pour chef de chantier
+        	Button abtn = (Button) this.findViewById(R.id.accepterbtn);
+        	Button rbtn = (Button) this.findViewById(R.id.refuserbtn);
+        	abtn.setText("Retour");
+        	rbtn.setVisibility(View.GONE);
+        }
 	}
 	public void openMainMenu(View v){
 		Intent intent = new Intent(this, MainActivity.class);
