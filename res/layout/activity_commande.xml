@@ -23,18 +23,44 @@
 
     <TableLayout
         android:layout_width="641dp"
-        android:layout_height="433dp"
+        android:layout_height="match_parent"
         android:layout_gravity="center" >
+
+         <TableRow
+             android:id="@+id/tableRow6"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_marginTop="40dp"
+             android:gravity="center" >
+
+            <TextView
+                android:id="@+id/TextView10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Demandeur:"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/golden_text" />
+
+            <TextView
+                android:id="@+id/demandeurTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="70dp"
+                android:text="Vincent Marion"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/dimwhite_text" />
+
+        </TableRow>
 
         <TableRow
             android:id="@+id/tableRow1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="25dp"
             android:gravity="center" >
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/TextView01"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Marque:"

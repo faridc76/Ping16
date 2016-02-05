@@ -5,14 +5,18 @@ import fr.ineo.gestineo.dto.Commande;
 import fr.ineo.gestineo.dto.Utilisateur;
 import info.androidhive.gestineo.R;
 import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
 
 
-public class CommandeActivity extends Activity {
+public class CommandeActivity extends Activity{
 
 	
 	public CommandeActivity() {
@@ -47,6 +51,12 @@ public class CommandeActivity extends Activity {
         //Responsable d'affaire
         TextView resp = (TextView) this.findViewById(R.id.dateTV);
         resp.setText(commande.getDate());
-
+          
 	}
+	
+	public void openMainMenu(View v){
+		Intent intent = new Intent(this, MainActivity.class);
+		intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+		this.startActivity(intent);
+    }
 }
