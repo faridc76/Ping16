@@ -187,9 +187,10 @@ public class MainActivity extends FragmentActivity {
 			break;
 		case 3:
 			// fragment = new CodisFragment();
-			Uri uri = Uri.parse("http://faridchouakria.free.fr/documents/ACN-060123/codis.xlsx");
+			fragment = new CodisBtnFragment();
+			/*Uri uri = Uri.parse("http://faridchouakria.free.fr/documents/ACN-060123/codis.xlsx");
 			Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-			startActivity(intent);
+			startActivity(intent); */
 			break;
 		case 4:
 			fragment = new DevisFragmentList();
