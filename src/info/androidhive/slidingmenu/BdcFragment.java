@@ -29,7 +29,7 @@ public class BdcFragment extends Fragment {
 				null);
 		mTabHost.addTab(mTabHost.newTabSpec("fragmentc").setIndicator("Consulter bons de commandes"),
 				BdcFragment3.class, null);
-		mTabHost.addTab(mTabHost.newTabSpec("fragmentd").setIndicator("Consulter demandes de personnels"),
+		mTabHost.addTab(mTabHost.newTabSpec("fragmentd").setIndicator("Consulter demandes de personnel"),
 				BdcFragment4.class, null);
 		return rootView;
 	}
