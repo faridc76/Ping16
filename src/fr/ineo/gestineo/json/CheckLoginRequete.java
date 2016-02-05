@@ -41,7 +41,7 @@ public class CheckLoginRequete extends AsyncTask<Object, Void, Utilisateur> {
 		if (context != null && matricule != null) {
 			if (result != null) {
 				Toast.makeText(context,
-						String.valueOf("Vous êtes connectés en tant que " + result.getPrenom() + " " + result.getNom()),
+						String.valueOf("Vous êtes connecté en tant que " + result.getPrenom() + " " + result.getNom()),
 						Toast.LENGTH_SHORT).show();
 
 				SharedPreferences sharedPreferences = context.getSharedPreferences("mesPrefs", Context.MODE_PRIVATE);
