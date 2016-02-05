@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import android.webkit.WebView.FindListener;
 import android.widget.Button;
 import android.widget.TextView;
+import fr.ineo.gestineo.dao.db.AffaireDB;
 import fr.ineo.gestineo.dao.db.UtilisateurDB;
 import fr.ineo.gestineo.dto.Affaire;
 import info.androidhive.gestineo.R;
@@ -35,6 +36,7 @@ public class ChantierFragment extends Fragment {
         SharedPreferences preferences = this.getActivity().getSharedPreferences("mesPrefs", Context.MODE_PRIVATE);
         String jsonAffaire = preferences.getString("affaire", "");
         Affaire affaire = gson.fromJson(jsonAffaire, Affaire.class);
+        Log.e("affaire nom", affaire.getNom());
         
         //dao utilisatur
         UtilisateurDB dao = new UtilisateurDB();
@@ -57,7 +59,7 @@ public class ChantierFragment extends Fragment {
         
         //Statut
         TextView statut = (TextView) rootView.findViewById(R.id.statusTV);
-        statut.setText(affaire.getStatut());
+        statut.setText(AffaireDB.leStatut(affaire.getStatut()));
         
         //Responsable d'affaire
         TextView resp = (TextView) rootView.findViewById(R.id.responsableTV);
