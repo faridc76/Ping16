@@ -8,6 +8,16 @@ public class DemandeDePersonnel {
 	private String objet;
 	private String tache;
 	private int duree;
+	private String date;
+	private int statut;
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
+	}
 
 	public DemandeDePersonnel(int id, Affaire affaire, Utilisateur utilisateur, String objet, String tache, int duree) {
 		super();
@@ -85,6 +95,14 @@ public class DemandeDePersonnel {
 		} else {
 			return true;
 		}
+	}
+
+	public int getStatut() {
+		return statut;
+	}
+
+	public void setStatut(int statut) {
+		this.statut = statut;
 	}
 
 }

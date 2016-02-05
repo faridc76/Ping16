@@ -168,6 +168,35 @@ public class CommandeDB implements ICommandeDB {
 		return commande;
 	}
 
+	
+	public void validerCommande(int statut, int idCommande) {
+		OutputStreamWriter writer = null;
+		BufferedReader reader = null;
+		try {
+			StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+			StrictMode.setThreadPolicy(policy);
+			URL url = new URL(DOMAINE + "valider_commande.php");
+			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+			connection.setDoOutput(true); // Pour pouvoir envoyer des donn�es
+			connection.setRequestMethod("POST");
+			writer = new OutputStreamWriter(connection.getOutputStream());
+			writer.write("id_commande=" + idCommande + "&statut=" + statut);
+			writer.flush();
+			reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				writer.close();
+			} catch (Exception e) {
+			}
+			try {
+				reader.close();
+			} catch (Exception e) {
+			}
+		}
+	}
+	
 	public static String leStatut(int statut) {
 		if (statut == 0) {
 			return "En attente";
@@ -179,5 +208,6 @@ public class CommandeDB implements ICommandeDB {
 			return "Indeterminé";
 		}
 	}
+	
 
 }

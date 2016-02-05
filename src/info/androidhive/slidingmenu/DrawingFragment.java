@@ -250,7 +250,7 @@ public class DrawingFragment extends Fragment implements OnClickListener {
 							drawView.getDrawingCache(), UUID.randomUUID().toString() + ".png", "drawing");
 					
 					//test enregistrement sur internet
-					
+					/**
 					SharedPreferences preferences = getActivity().getSharedPreferences("mesPrefs", Context.MODE_PRIVATE);
 					Gson gson = new Gson();
 					String jsonAffaire = preferences.getString("affaire", "");
@@ -265,7 +265,7 @@ public class DrawingFragment extends Fragment implements OnClickListener {
 					
 					final UploadTask uploadTask = new UploadTask(getActivity(), mProgressDialog);
 					uploadTask.execute(affaire.getNom(), "test.jpg");
-					
+					*/
 					//Fin test
 					
 					
