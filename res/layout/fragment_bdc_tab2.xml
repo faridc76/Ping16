@@ -34,33 +34,7 @@
             android:inputType="textMultiLine"
             android:textColor="#85A6D1" />
 
-        <!--
-          <EditText
-        android:id="@+id/EditText04"
-        android:layout_width="1020dp"
-        android:layout_height="50dp"
-        android:layout_alignLeft="@+id/EditText03"
-        android:layout_below="@+id/EditText03"
-        android:layout_marginTop="15dp"
-        android:ems="10"
-        android:inputType="textMultiLine"
-        android:text="erferf"
-        android:textColor="#85A6D1" />
-        -->
-
-
-        <!--
-             <Spinner
-            android:id="@+id/spinner1"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_alignLeft="@+id/EditText03"
-            android:layout_below="@+id/EditText03"
-            android:layout_marginTop="15dp"
-            android:layout_toLeftOf="@+id/TextView01"
-            android:textColor="#85A6D1" />
-        -->
-
+      
         <TextView
             android:id="@+id/textView1"
             android:layout_width="265dp"
@@ -133,17 +107,6 @@
             android:textColor="@color/dimwhite_text" />
 
         <TextView
-            android:id="@+id/TextView02"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/EditText02"
-            android:layout_below="@+id/textView1"
-            android:layout_marginTop="55dp"
-            android:text="Nom                           :"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="@color/golden_text" />
-
-        <TextView
             android:id="@+id/TextView03"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
@@ -176,6 +139,40 @@
             android:text="Réponse"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@color/dimwhite_text" />
+
+        <TextView
+            android:id="@+id/TextView02"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/EditText02"
+            android:layout_below="@+id/textView1"
+            android:layout_marginTop="71dp"
+            android:text="Nom                           :"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/golden_text" />
+
+        <TextView
+            android:id="@+id/TextView09"
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/TextView08"
+            android:layout_alignBottom="@+id/TextView08"
+            android:layout_alignLeft="@+id/TextView05"
+            android:text="Réponse"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/dimwhite_text" />
+
+        <TextView
+            android:id="@+id/TextView08"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/TextView02"
+            android:layout_below="@+id/textView1"
+            android:layout_marginTop="22dp"
+            android:text="Numero commande:"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/golden_text" />
+
     </RelativeLayout>
 
 </ScrollView>

@@ -11,6 +11,6 @@ public interface IDemandeDePersonnelDB {
 
 	public List<DemandeItem> listeDemande(int idAffaire);
 
-	public DemandeDePersonnel demandeFromId(int id);
+	public DemandeDePersonnel demandeFromNumeroDemande(String num);
 
 }

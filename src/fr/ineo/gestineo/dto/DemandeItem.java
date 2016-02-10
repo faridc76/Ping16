@@ -1,16 +1,14 @@
 package fr.ineo.gestineo.dto;
 
 public class DemandeItem {
-	int id;
 	String statut;
-	String tache;
+	String numero;
 	String auteur;
 
-	public DemandeItem(int id, String statut, String tache, String auteur) {
+	public DemandeItem(String statut, String numero, String auteur) {
 		super();
-		this.id = id;
 		this.statut = statut;
-		this.tache = tache;
+		this.numero = numero;
 		this.auteur = auteur;
 	}
 
@@ -22,12 +20,12 @@ public class DemandeItem {
 		this.statut = statut;
 	}
 
-	public String getTache() {
-		return tache;
+	public String getNumero() {
+		return numero;
 	}
 
-	public void setTache(String tache) {
-		this.tache = tache;
+	public void setNumero(String numero) {
+		this.numero = numero;
 	}
 
 	public String getAuteur() {
@@ -36,14 +34,6 @@ public class DemandeItem {
 
 	public void setAuteur(String auteur) {
 		this.auteur = auteur;
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
 	}
 
 }

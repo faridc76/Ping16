@@ -27,6 +27,31 @@
         android:layout_gravity="center" >
 
         <TableRow
+            android:id="@+id/tableRow6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" 
+            android:layout_marginTop="40dp"
+            android:gravity="center" >
+            
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Numero commande:"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/golden_text" />
+
+            <TextView
+                android:id="@+id/numeroTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="70dp"
+                android:text=""
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/dimwhite_text" />
+        </TableRow>
+
+        <TableRow
             android:id="@+id/tableRow1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -46,7 +71,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="70dp"
-                android:text="Vincent Marion"
+                android:text=""
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@color/dimwhite_text" />
 
@@ -129,31 +154,63 @@
         </TableRow>
 
         <TableRow
+            android:id="@+id/tableRow5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" 
+            android:layout_marginTop="25dp"
+            android:gravity="center">
+            
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Statut:"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/golden_text" />
+
+            <TextView
+                android:id="@+id/statutTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="70dp"
+                android:text="Large Text"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/dimwhite_text" />
+        </TableRow>
+
+        <TableRow
             android:id="@+id/tableRow8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="75dp"
+            android:layout_marginTop="30dp"
             android:gravity="center" >
 
             <Button
-                android:id="@+id/Button01"
-                android:layout_width="150dp"
+                android:id="@+id/accepterbtn"
+                android:layout_width="130dp"
                 android:layout_height="40dp"
-                android:layout_marginRight="10dp"
                 android:background="@drawable/buttonstyle"
-                android:onClick="openMainMenu"
                 android:text="Accepter"
                 android:textColor="@color/lightblue_text"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/returnbtn"
-                android:layout_width="150dp"
+                android:id="@+id/retourbtn"
+                android:layout_width="100dp"
                 android:layout_height="40dp"
-                android:layout_marginLeft="10dp"
                 android:background="@drawable/buttonstyle"
-                android:onClick="openMainMenu"
+                android:text="Retour"
+                android:textColor="@color/lightblue_text"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:visibility="invisible" />
+
+            <Button
+                android:id="@+id/refuserbtn"
+                android:layout_width="130dp"
+                android:layout_height="40dp"
+                android:background="@drawable/buttonstyle"
                 android:text="Refuser"
                 android:textColor="@color/lightblue_text"
                 android:textSize="20sp"

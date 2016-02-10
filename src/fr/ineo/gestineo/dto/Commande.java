@@ -5,6 +5,7 @@ public class Commande {
 	private int id;
 	private Affaire affaire;
 	private Utilisateur utilisateur;
+	private String numCommande;
 	private String observation;
 	private String marque;
 	private String reference;
@@ -12,19 +13,6 @@ public class Commande {
 	private int quantite;
 	private int statut;
 	private String date;
-
-	public Commande(int id, Affaire affaire, Utilisateur utilisateur, String observation, String marque,
-			String reference, String designation, int quantite) {
-		super();
-		this.id = id;
-		this.affaire = affaire;
-		this.utilisateur = utilisateur;
-		this.observation = observation;
-		this.marque = marque;
-		this.reference = reference;
-		this.designiation = designation;
-		this.quantite = quantite;
-	}
 
 	public Commande() {
 		id = 0;
@@ -124,5 +112,13 @@ public class Commande {
 
 	public void setDate(String date) {
 		this.date = date;
+	}
+
+	public String getNumCommande() {
+		return numCommande;
+	}
+
+	public void setNumCommande(String numCommande) {
+		this.numCommande = numCommande;
 	}
 }

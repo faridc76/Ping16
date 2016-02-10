@@ -15,7 +15,7 @@ import android.os.StrictMode;
 import android.util.Log;
 import fr.ineo.gestineo.dao.IDemandeDePersonnelDB;
 import fr.ineo.gestineo.dao.IUtilisateurDB;
-import fr.ineo.gestineo.dto.Commande;
+import fr.ineo.gestineo.dto.Affaire;
 import fr.ineo.gestineo.dto.DemandeDePersonnel;
 import fr.ineo.gestineo.dto.DemandeItem;
 import fr.ineo.gestineo.dto.Utilisateur;
@@ -39,7 +39,8 @@ public class DemandeDePersonnelDB implements IDemandeDePersonnelDB {
 			connection.setRequestMethod("POST");
 			writer = new OutputStreamWriter(connection.getOutputStream());
 			writer.write("id_affaire=" + ddp.getAffaire().getId() + "&id_utilisateur=" + ddp.getUtilisateur().getId()
-					+ "&objet=" + ddp.getObjet() + "&tache=" + ddp.getTache() + "&duree=" + ddp.getDuree());
+					+ "&num_demande=" + ddp.getNumDemande() + "&objet=" + ddp.getObjet() + "&tache=" + ddp.getTache()
+					+ "&duree=" + ddp.getDuree());
 			writer.flush();
 			reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
 			String ligne;
@@ -98,8 +99,8 @@ public class DemandeDePersonnelDB implements IDemandeDePersonnelDB {
 				for (int i = 0; i < len; i++) {
 					String leStatut = leStatut(jsonArray.getJSONObject(i).getInt("statut"));
 					Utilisateur u = dao.getUtilisateurFromId(jsonArray.getJSONObject(i).getInt("auteur"));
-					DemandeItem demandeItem = new DemandeItem(jsonArray.getJSONObject(i).getInt("id"), leStatut,
-							jsonArray.getJSONObject(i).getString("tache"), u.getPrenom() + " " + u.getNom());
+					DemandeItem demandeItem = new DemandeItem(leStatut, jsonArray.getJSONObject(i).getString("numero"),
+							u.getPrenom() + " " + u.getNom());
 					list.add(demandeItem);
 				}
 			}
@@ -119,7 +120,7 @@ public class DemandeDePersonnelDB implements IDemandeDePersonnelDB {
 	}
 
 	@Override
-	public DemandeDePersonnel demandeFromId(int id) {
+	public DemandeDePersonnel demandeFromNumeroDemande(String num) {
 		String result = "";
 		DemandeDePersonnel demandeDePersonnel = null;
 		OutputStreamWriter writer = null;
@@ -133,23 +134,24 @@ public class DemandeDePersonnelDB implements IDemandeDePersonnelDB {
 			connection.setDoOutput(true); // Pour pouvoir envoyer des donn�es
 			connection.setRequestMethod("POST");
 			writer = new OutputStreamWriter(connection.getOutputStream());
-			writer.write("id_demande=" + id);
+			writer.write("num_demande=" + num);
 			writer.flush();
 			reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
 			String ligne;
 			while ((ligne = reader.readLine()) != null) {
 				result += ligne;
 			}
-
+			Log.i("result de la demande", result);
 			IUtilisateurDB utilisateurDB = new UtilisateurDB();
 			JSONObject obj = new JSONObject(result);
 			demandeDePersonnel = new DemandeDePersonnel();
 			demandeDePersonnel.setId(obj.getInt("id"));
+
 			demandeDePersonnel.setUtilisateur(utilisateurDB.getUtilisateurFromId(obj.getInt("utilisateur")));
 			demandeDePersonnel.setObjet(obj.getString("objet"));
 			demandeDePersonnel.setTache(obj.getString("tache"));
 			demandeDePersonnel.setDuree(obj.getInt("periode"));
-			demandeDePersonnel.setDate(obj.getString("date"));
+			demandeDePersonnel.setNumDemande(obj.getString("numero"));
 			demandeDePersonnel.setStatut(obj.getInt("statut"));
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -165,7 +167,7 @@ public class DemandeDePersonnelDB implements IDemandeDePersonnelDB {
 		}
 		return demandeDePersonnel;
 	}
-	
+
 	public void validerDemande(int statut, int idDemande) {
 		OutputStreamWriter writer = null;
 		BufferedReader reader = null;
@@ -204,6 +206,41 @@ public class DemandeDePersonnelDB implements IDemandeDePersonnelDB {
 		} else {
 			return "Indeterminé";
 		}
+	}
+
+	public String getFreeNumDemande(Affaire affaire, Utilisateur utilisateur) {
+		String result = "";
+		OutputStreamWriter writer = null;
+		BufferedReader reader = null;
+		try {
+			StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+			StrictMode.setThreadPolicy(policy);
+			URL url = new URL(DOMAINE + "is_free_numero_demande.php");
+			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+			connection.setDoOutput(true); // Pour pouvoir envoyer des donn�es
+			connection.setRequestMethod("POST");
+			writer = new OutputStreamWriter(connection.getOutputStream());
+			writer.write("num_demande=" + affaire.getNom() + "_" + utilisateur.getMatricule() + "_D_");
+			writer.flush();
+			reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+			String ligne;
+			while ((ligne = reader.readLine()) != null) {
+				result += ligne;
+			}
+			Log.i("result numero de Demande", result);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				writer.close();
+			} catch (Exception e) {
+			}
+			try {
+				reader.close();
+			} catch (Exception e) {
+			}
+		}
+		return result.trim();
 	}
 
 }

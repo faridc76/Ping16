@@ -3,12 +3,10 @@ package info.androidhive.slidingmenu;
 import java.util.ArrayList;
 
 import android.app.ActionBar;
-import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.Fragment;
@@ -188,9 +186,12 @@ public class MainActivity extends FragmentActivity {
 		case 3:
 			// fragment = new CodisFragment();
 			fragment = new CodisBtnFragment();
-			/*Uri uri = Uri.parse("http://faridchouakria.free.fr/documents/ACN-060123/codis.xlsx");
-			Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-			startActivity(intent); */
+			/*
+			 * Uri uri = Uri.parse(
+			 * "http://faridchouakria.free.fr/documents/ACN-060123/codis.xlsx");
+			 * Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+			 * startActivity(intent);
+			 */
 			break;
 		case 4:
 			fragment = new DevisFragmentList();
@@ -224,12 +225,12 @@ public class MainActivity extends FragmentActivity {
 		mTitle = title;
 		getActionBar().setTitle(Html.fromHtml(titleText));
 	}
-	
-	public void openFragment(Fragment fragment){
+
+	public void openFragment(Fragment fragment) {
 		android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
 		fragmentManager.beginTransaction().replace(R.id.frame_container, fragment).addToBackStack("tag").commit();
 	}
-	
+
 	/**
 	 * When using the ActionBarDrawerToggle, you must call it during
 	 * onPostCreate() and onConfigurationChanged()...
@@ -250,5 +251,3 @@ public class MainActivity extends FragmentActivity {
 	}
 
 }
-
-

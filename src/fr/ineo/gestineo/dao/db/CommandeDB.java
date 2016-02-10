@@ -15,6 +15,7 @@ import android.os.StrictMode;
 import android.util.Log;
 import fr.ineo.gestineo.dao.ICommandeDB;
 import fr.ineo.gestineo.dao.IUtilisateurDB;
+import fr.ineo.gestineo.dto.Affaire;
 import fr.ineo.gestineo.dto.Commande;
 import fr.ineo.gestineo.dto.CommandeItem;
 import fr.ineo.gestineo.dto.Utilisateur;
@@ -22,6 +23,9 @@ import fr.ineo.gestineo.dto.Utilisateur;
 public class CommandeDB implements ICommandeDB {
 
 	public final static String DOMAINE = "http://faridchouakria.free.fr/webservices/";
+	public final static int EN_ATTENTE = 0;
+	public final static int VALIDE = 1;
+	public final static int REFUSE = 2;
 
 	@Override
 	public boolean passerCommande(Commande c) {
@@ -29,6 +33,7 @@ public class CommandeDB implements ICommandeDB {
 		int id = 0;
 		OutputStreamWriter writer = null;
 		BufferedReader reader = null;
+		Log.i("num commande", c.getNumCommande());
 		try {
 			StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
 			StrictMode.setThreadPolicy(policy);
@@ -38,17 +43,15 @@ public class CommandeDB implements ICommandeDB {
 			connection.setRequestMethod("POST");
 			writer = new OutputStreamWriter(connection.getOutputStream());
 			writer.write("id_affaire=" + c.getAffaire().getId() + "&id_utilisateur=" + c.getUtilisateur().getId()
-					+ "&observation=" + c.getObservation() + "&marque=" + c.getMarque() + "&reference="
-					+ c.getReference() + "&designiation=" + c.getDesignation() + "&quantite=" + c.getQuantite());
+					+ "&num_commande=" + c.getNumCommande() + "&observation=" + c.getObservation() + "&marque="
+					+ c.getMarque() + "&reference=" + c.getReference() + "&designiation=" + c.getDesignation()
+					+ "&quantite=" + c.getQuantite());
 			writer.flush();
 			reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
 			String ligne;
 			while ((ligne = reader.readLine()) != null) {
 				result += ligne;
 			}
-
-			id = Integer.parseInt(result);
-			c.setId(id);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -99,7 +102,7 @@ public class CommandeDB implements ICommandeDB {
 					String leStatut = leStatut(jsonArray.getJSONObject(i).getInt("statut"));
 					Utilisateur u = dao.getUtilisateurFromId(jsonArray.getJSONObject(i).getInt("auteur"));
 					CommandeItem commandeItem = new CommandeItem(leStatut,
-							jsonArray.getJSONObject(i).getString("reference"), u.getPrenom() + " " + u.getNom());
+							jsonArray.getJSONObject(i).getString("numero"), u.getPrenom() + " " + u.getNom());
 					list.add(commandeItem);
 				}
 			}
@@ -119,7 +122,8 @@ public class CommandeDB implements ICommandeDB {
 	}
 
 	@Override
-	public Commande recupCommande(String referenceCommande) {
+	public Commande recupCommande(String numCommande) {
+		Log.i("numcommande", numCommande);
 		String result = "";
 		Commande commande = null;
 		OutputStreamWriter writer = null;
@@ -133,26 +137,28 @@ public class CommandeDB implements ICommandeDB {
 			connection.setDoOutput(true); // Pour pouvoir envoyer des donn�es
 			connection.setRequestMethod("POST");
 			writer = new OutputStreamWriter(connection.getOutputStream());
-			writer.write("reference=" + referenceCommande);
+			writer.write("num_commande=" + numCommande);
 			writer.flush();
 			reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
 			String ligne;
 			while ((ligne = reader.readLine()) != null) {
 				result += ligne;
 			}
-
 			IUtilisateurDB utilisateurDB = new UtilisateurDB();
 			JSONObject obj = new JSONObject(result);
 			commande = new Commande();
-			commande.setId(obj.getInt("id"));
-			commande.setUtilisateur(utilisateurDB.getUtilisateurFromId(obj.getInt("utilisateur")));
-			commande.setObservation(obj.getString("observation"));
-			commande.setMarque(obj.getString("marque"));
-			commande.setReference(obj.getString("reference"));
-			commande.setDesignation(obj.getString("designiation"));
-			commande.setQuantite(obj.getInt("quantite"));
-			commande.setDate(obj.getString("date"));
-			commande.setStatut(obj.getInt("statut"));
+			if (obj.getBoolean("result")) {
+				commande.setId(obj.getInt("id"));
+				commande.setUtilisateur(utilisateurDB.getUtilisateurFromId(obj.getInt("utilisateur")));
+				commande.setNumCommande(obj.getString("numero"));
+				commande.setObservation(obj.getString("observation"));
+				commande.setMarque(obj.getString("marque"));
+				commande.setReference(obj.getString("reference"));
+				commande.setDesignation(obj.getString("designiation"));
+				commande.setQuantite(obj.getInt("quantite"));
+				commande.setStatut(obj.getInt("statut"));
+				System.out.println(commande.getNumCommande());
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -168,7 +174,6 @@ public class CommandeDB implements ICommandeDB {
 		return commande;
 	}
 
-	
 	public void validerCommande(int statut, int idCommande) {
 		OutputStreamWriter writer = null;
 		BufferedReader reader = null;
@@ -196,7 +201,7 @@ public class CommandeDB implements ICommandeDB {
 			}
 		}
 	}
-	
+
 	public static String leStatut(int statut) {
 		if (statut == 0) {
 			return "En attente";
@@ -208,6 +213,39 @@ public class CommandeDB implements ICommandeDB {
 			return "Indeterminé";
 		}
 	}
-	
 
+	public String getFreeNumCommande(Affaire affaire, Utilisateur utilisateur) {
+		String result = "";
+		OutputStreamWriter writer = null;
+		BufferedReader reader = null;
+		try {
+			StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+			StrictMode.setThreadPolicy(policy);
+			URL url = new URL(DOMAINE + "is_free_numero_commande.php");
+			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+			connection.setDoOutput(true); // Pour pouvoir envoyer des donn�es
+			connection.setRequestMethod("POST");
+			writer = new OutputStreamWriter(connection.getOutputStream());
+			writer.write("num_commande=" + affaire.getNom() + "_" + utilisateur.getMatricule() + "_C_");
+			writer.flush();
+			reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+			String ligne;
+			while ((ligne = reader.readLine()) != null) {
+				result += ligne;
+			}
+			Log.i("result numero de commande", result);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				writer.close();
+			} catch (Exception e) {
+			}
+			try {
+				reader.close();
+			} catch (Exception e) {
+			}
+		}
+		return result.trim();
+	}
 }

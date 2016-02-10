@@ -5,14 +5,9 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.UUID;
 
-import com.google.gson.Gson;
-
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.DialogInterface;
-import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
@@ -26,8 +21,6 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.Toast;
-import fr.ineo.gestineo.dto.Affaire;
-import fr.ineo.gestineo.json.UploadTask;
 import info.androidhive.gestineo.R;
 
 public class DrawingFragment extends Fragment implements OnClickListener {
@@ -248,27 +241,30 @@ public class DrawingFragment extends Fragment implements OnClickListener {
 					// attempt to save
 					String imgSaved = MediaStore.Images.Media.insertImage(getActivity().getContentResolver(),
 							drawView.getDrawingCache(), UUID.randomUUID().toString() + ".png", "drawing");
-					
-					//test enregistrement sur internet
+
+					// test enregistrement sur internet
 					/**
-					SharedPreferences preferences = getActivity().getSharedPreferences("mesPrefs", Context.MODE_PRIVATE);
-					Gson gson = new Gson();
-					String jsonAffaire = preferences.getString("affaire", "");
-					Affaire affaire = gson.fromJson(jsonAffaire, Affaire.class);
-					
-					ProgressDialog mProgressDialog = new ProgressDialog(getActivity());
-					mProgressDialog.setMessage("Uploading...");
-					mProgressDialog.setIndeterminate(false);
-					mProgressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-					mProgressDialog.setProgress(0);
-					mProgressDialog.show();
-					
-					final UploadTask uploadTask = new UploadTask(getActivity(), mProgressDialog);
-					uploadTask.execute(affaire.getNom(), "test.jpg");
-					*/
-					//Fin test
-					
-					
+					 * SharedPreferences preferences =
+					 * getActivity().getSharedPreferences("mesPrefs",
+					 * Context.MODE_PRIVATE); Gson gson = new Gson(); String
+					 * jsonAffaire = preferences.getString("affaire", "");
+					 * Affaire affaire = gson.fromJson(jsonAffaire,
+					 * Affaire.class);
+					 * 
+					 * ProgressDialog mProgressDialog = new
+					 * ProgressDialog(getActivity());
+					 * mProgressDialog.setMessage("Uploading...");
+					 * mProgressDialog.setIndeterminate(false);
+					 * mProgressDialog.setProgressStyle(ProgressDialog.
+					 * STYLE_HORIZONTAL); mProgressDialog.setProgress(0);
+					 * mProgressDialog.show();
+					 * 
+					 * final UploadTask uploadTask = new
+					 * UploadTask(getActivity(), mProgressDialog);
+					 * uploadTask.execute(affaire.getNom(), "test.jpg");
+					 */
+					// Fin test
+
 					// feedback
 					if (imgSaved != null) {
 						Toast savedToast = Toast.makeText(getActivity(), "Drawing saved to Gallery!",

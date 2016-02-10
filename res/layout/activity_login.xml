@@ -47,7 +47,7 @@
         android:textColor="@color/lightblue_text"
         android:textSize="20sp"
         android:textStyle="bold" />
-
+    
     <CheckBox
         android:id="@+id/checkBox1"
         android:layout_width="wrap_content"
@@ -55,5 +55,5 @@
         android:layout_alignLeft="@+id/ETPassword"
         android:layout_below="@+id/ETPassword"
         android:layout_marginTop="38dp" />
-    
+
 </RelativeLayout>

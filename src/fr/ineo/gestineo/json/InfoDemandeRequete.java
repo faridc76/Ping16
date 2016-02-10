@@ -12,28 +12,27 @@ import fr.ineo.gestineo.dao.IDemandeDePersonnelDB;
 import fr.ineo.gestineo.dao.db.DemandeDePersonnelDB;
 import fr.ineo.gestineo.dto.DemandeDePersonnel;
 import info.androidhive.slidingmenu.DemandeActivity;
-import info.androidhive.slidingmenu.MainActivity;
 
 public class InfoDemandeRequete extends AsyncTask<Object, Void, DemandeDePersonnel> {
 
 	private Context context = null;
-	private Integer idDemande = null;
+	private String numDemande = null;
 
 	@Override
 	protected DemandeDePersonnel doInBackground(Object... params) {
-		idDemande = (Integer) params[0];
+		numDemande = (String) params[0];
 		context = (Context) params[1];
 		IDemandeDePersonnelDB demandeDePersonnelDB = new DemandeDePersonnelDB();
 
-		return demandeDePersonnelDB.demandeFromId(idDemande);
+		return demandeDePersonnelDB.demandeFromNumeroDemande(numDemande);
 	}
 
 	@Override
 	protected void onPostExecute(DemandeDePersonnel result) {
-		if (context != null && idDemande != null) {
+		if (context != null && numDemande != null) {
 			if (result != null) {
 				Toast.makeText(context, String.valueOf(result), Toast.LENGTH_SHORT).show();
-				SharedPreferences sharedPreferences = context.getSharedPreferences("mesPrefs", context.MODE_PRIVATE);
+				SharedPreferences sharedPreferences = context.getSharedPreferences("mesPrefs", Context.MODE_PRIVATE);
 				Editor editor = sharedPreferences.edit();
 				Gson gson = new Gson();
 				editor.putString("demande", gson.toJson(result));

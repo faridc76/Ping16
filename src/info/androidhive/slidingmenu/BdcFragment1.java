@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,12 +30,16 @@ public class BdcFragment1 extends Fragment implements View.OnClickListener {
 
 	private CommandeDB dao;
 
+	String numeroCommande;
+	TextView numCommande;
+
 	public BdcFragment1() {
 		dao = new CommandeDB();
 	}
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
 		rootView = inflater.inflate(R.layout.fragment_bdc_tab1, container, false);
 		Gson gson = new Gson();
 		SharedPreferences preferences = this.getActivity().getSharedPreferences("mesPrefs", Context.MODE_PRIVATE);
@@ -46,9 +51,11 @@ public class BdcFragment1 extends Fragment implements View.OnClickListener {
 		affaire = gson.fromJson(jsonAffaire, Affaire.class);
 		utilisateur = gson.fromJson(jsonUtilisateur, Utilisateur.class);
 
-		// Numero affaire
-		TextView numAffaire = (TextView) rootView.findViewById(R.id.TextView07);
-		numAffaire.setText(affaire.getId() + "");
+		// Numero commande
+		numCommande = (TextView) rootView.findViewById(R.id.TextView07);
+		numeroCommande = dao.getFreeNumCommande(affaire, utilisateur);
+		Log.i("Création numero de commande", numeroCommande);
+		numCommande.setText(numeroCommande);
 
 		// Nom affaire
 		TextView nomAffaire = (TextView) rootView.findViewById(R.id.TextView08);
@@ -78,6 +85,7 @@ public class BdcFragment1 extends Fragment implements View.OnClickListener {
 		// On ajoute l'affaire et lutilisateur
 		c.setAffaire(affaire);
 		c.setUtilisateur(utilisateur);
+		c.setNumCommande(numeroCommande);
 		// On recupere les information des formulaire
 
 		// Obeservation
@@ -108,6 +116,13 @@ public class BdcFragment1 extends Fragment implements View.OnClickListener {
 					.show();
 		} else if (dao.passerCommande(c)) {
 			Toast.makeText(getActivity(), String.valueOf("Commande effectuée"), Toast.LENGTH_SHORT).show();
+			numeroCommande = dao.getFreeNumCommande(affaire, utilisateur);
+			numCommande.setText(numeroCommande);
+			observation.setText("");
+			quantite.setText("");
+			designiation.setText("");
+			reference.setText("");
+			marque.setText("");
 		} else {
 			Toast.makeText(getActivity(),
 					String.valueOf("Un probleme est survenu lors de l'enregistrement de votre commande"),

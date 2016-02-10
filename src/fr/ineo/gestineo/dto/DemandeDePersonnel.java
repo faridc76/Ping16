@@ -10,6 +10,7 @@ public class DemandeDePersonnel {
 	private int duree;
 	private String date;
 	private int statut;
+	private String numDemande;
 
 	public String getDate() {
 		return date;
@@ -17,16 +18,6 @@ public class DemandeDePersonnel {
 
 	public void setDate(String date) {
 		this.date = date;
-	}
-
-	public DemandeDePersonnel(int id, Affaire affaire, Utilisateur utilisateur, String objet, String tache, int duree) {
-		super();
-		this.id = id;
-		this.affaire = affaire;
-		this.utilisateur = utilisateur;
-		this.objet = objet;
-		this.tache = tache;
-		this.duree = duree;
 	}
 
 	public DemandeDePersonnel() {
@@ -103,6 +94,14 @@ public class DemandeDePersonnel {
 
 	public void setStatut(int statut) {
 		this.statut = statut;
+	}
+
+	public String getNumDemande() {
+		return numDemande;
+	}
+
+	public void setNumDemande(String numDemande) {
+		this.numDemande = numDemande;
 	}
 
 }

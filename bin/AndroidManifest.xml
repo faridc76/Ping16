@@ -38,6 +38,7 @@
             android:name="info.androidhive.slidingmenu.LoginActivity"
             android:label="@string/title_activity_login"
             android:screenOrientation="landscape"
+            android:noHistory="true"
             android:theme="@android:style/Theme.Light.NoTitleBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -48,6 +49,7 @@
         <activity 
             android:name="info.androidhive.slidingmenu.ChantierActivity"
             android:screenOrientation="landscape"
+            android:noHistory="true"
             android:theme="@android:style/Theme.Light.NoTitleBar" >
         </activity>
         <activity 

@@ -50,7 +50,7 @@ public class DevisFragmentList extends Fragment {
 		Log.e("nomAffaire", affaire.getNom());
 		arrayList = dao.listeDocumentDossier(affaire.getNom(), "devis");
 		Log.e("liste plan", arrayList.toString());
-		
+
 		arrayAdapter = new ArrayAdapter<String>(getActivity(), R.layout.fragment_devis_list_item, R.id.list_item_text,
 				arrayList);
 		listView.setAdapter(arrayAdapter);

@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +28,9 @@ public class BdcFragment2 extends Fragment implements View.OnClickListener {
 	private View rootView;
 	DemandeDePersonnelDB dao;
 
+	String numDemande = "";
+	TextView numeroDemande;
+
 	public BdcFragment2() {
 		dao = new DemandeDePersonnelDB();
 	}
@@ -46,6 +50,12 @@ public class BdcFragment2 extends Fragment implements View.OnClickListener {
 
 		affaire = gson.fromJson(jsonAffaire, Affaire.class);
 		utilisateur = gson.fromJson(jsonUtilisateur, Utilisateur.class);
+
+		// Numero Commande
+		numeroDemande = (TextView) rootView.findViewById(R.id.TextView09);
+		numDemande = dao.getFreeNumDemande(affaire, utilisateur);
+		Log.i("creation demande", numDemande);
+		numeroDemande.setText(numDemande);
 
 		// Personne à contacter
 		TextView nomUtilisateur = (TextView) rootView.findViewById(R.id.TextView05);
@@ -68,6 +78,7 @@ public class BdcFragment2 extends Fragment implements View.OnClickListener {
 		DemandeDePersonnel ddp = new DemandeDePersonnel();
 		ddp.setAffaire(affaire);
 		ddp.setUtilisateur(utilisateur);
+		ddp.setNumDemande(numDemande);
 
 		// Objet
 		EditText objet = (EditText) rootView.findViewById(R.id.EditText02);
@@ -88,6 +99,11 @@ public class BdcFragment2 extends Fragment implements View.OnClickListener {
 			Toast.makeText(getActivity(), String.valueOf("La durée ne peut pas être nul"), Toast.LENGTH_SHORT).show();
 		} else if (dao.demanderDuPersonnel(ddp)) {
 			Toast.makeText(getActivity(), String.valueOf("Commande effectuée"), Toast.LENGTH_SHORT).show();
+			numDemande = dao.getFreeNumDemande(affaire, utilisateur);
+			numeroDemande.setText(numDemande);
+			objet.setText("");
+			tache.setText("");
+			duree.setText("");
 		} else {
 			Toast.makeText(getActivity(),
 					String.valueOf("Un probleme est survenu lors de l'enregistrement de votre commande"),

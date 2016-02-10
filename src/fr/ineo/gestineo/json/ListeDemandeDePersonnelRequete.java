@@ -47,7 +47,7 @@ public class ListeDemandeDePersonnelRequete extends AsyncTask<Object, Void, List
 					public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 						System.out.println("id : " + id);
 						System.out.println("position : " + position);
-						new InfoDemandeRequete().execute(list.get(position).getId(), context);
+						new InfoDemandeRequete().execute(list.get(position).getNumero(), context);
 					}
 				});
 			} else {

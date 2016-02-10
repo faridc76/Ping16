@@ -32,7 +32,7 @@ public class DemandeAdapter extends ArrayAdapter<DemandeItem> {
 
 		// Populate the data into the template view using the data object
 		tvStatut.setText(String.valueOf(demandeItem.getStatut()));
-		tvTache.setText(demandeItem.getTache());
+		tvTache.setText(demandeItem.getNumero());
 		tvCommanditaire.setText(demandeItem.getAuteur());
 		// Return the completed view to render on screen
 		return convertView;

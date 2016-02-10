@@ -51,4 +51,8 @@ public class LoginActivity extends Activity {
 		Intent intent = new Intent(this, RegisterActivity.class);
 		startActivity(intent);
 	}
+
+	public void done() {
+		finish();
+	}
 }

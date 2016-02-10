@@ -54,7 +54,7 @@ public class CheckLoginRequete extends AsyncTask<Object, Void, Utilisateur> {
 				intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
 				context.startActivity(intent);
-				// Intent...
+
 			} else {
 				Toast.makeText(context, String.valueOf("Identifiants incorrects"), Toast.LENGTH_SHORT).show();
 			}

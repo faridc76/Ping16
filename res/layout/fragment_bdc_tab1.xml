@@ -83,30 +83,6 @@
             android:inputType="number"
             android:textColor="#85A6D1" />
 
-        <EditText
-            android:id="@+id/EditText09"
-            android:layout_width="500dp"
-            android:layout_height="50dp"
-            android:layout_alignRight="@+id/EditText07"
-            android:layout_alignTop="@+id/EditText08"
-            android:ems="10"
-            android:hint="Date de Livraison"
-            android:inputType="date"
-            android:textColor="#85A6D1" />
-
-        <Button
-            android:id="@+id/button1"
-            android:layout_width="220dp"
-            android:layout_height="60dp"
-            android:layout_alignRight="@+id/EditText09"
-            android:layout_below="@+id/EditText09"
-            android:layout_marginTop="50dp"
-            android:background="@drawable/buttonstyle"
-            android:text="Envoyer"
-            android:textColor="#85A6D1"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
         <TextView
             android:id="@+id/TextView04"
             android:layout_width="250dp"
@@ -160,7 +136,7 @@
             android:layout_alignLeft="@+id/EditText04"
             android:layout_below="@+id/textView1"
             android:layout_marginTop="55dp"
-            android:text="N° de chantier              :"
+            android:text="N° de commande           :"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@color/golden_text" />
 
@@ -177,34 +153,12 @@
 
         <TextView
             android:id="@+id/TextView07"
-            android:layout_width="300dp"
+            android:layout_width="320dp"
             android:layout_height="wrap_content"
             android:layout_above="@+id/TextView03"
             android:layout_marginLeft="104dp"
             android:layout_marginTop="40dp"
             android:layout_toRightOf="@+id/TextView02"
-            android:text="Réponse"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="@color/dimwhite_text" />
-
-        <TextView
-            android:id="@+id/TextView08"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/TextView04"
-            android:layout_alignRight="@+id/TextView07"
-            android:layout_marginTop="15dp"
-            android:text="Réponse"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="@color/dimwhite_text" />
-
-        <TextView
-            android:id="@+id/TextView09"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/TextView05"
-            android:layout_alignLeft="@+id/TextView08"
-            android:layout_marginTop="15dp"
             android:text="Réponse"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@color/dimwhite_text" />
@@ -230,6 +184,43 @@
             android:text="Réponse"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@color/dimwhite_text" />
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="220dp"
+            android:layout_height="60dp"
+            android:layout_alignRight="@+id/EditText07"
+            android:layout_alignTop="@+id/EditText08"
+            android:layout_marginRight="26dp"
+            android:background="@drawable/buttonstyle"
+            android:text="Envoyer"
+            android:textColor="#85A6D1"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/TextView08"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/TextView03"
+            android:layout_alignBottom="@+id/TextView03"
+            android:layout_alignLeft="@+id/TextView07"
+            android:text="Réponse"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/dimwhite_text" />
+
+        
+
+        <TextView
+            android:id="@+id/TextView09"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/TextView10"
+            android:layout_alignLeft="@+id/TextView08"
+            android:text="Réponse"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/dimwhite_text" />
+
     </RelativeLayout>
 
 </ScrollView>
